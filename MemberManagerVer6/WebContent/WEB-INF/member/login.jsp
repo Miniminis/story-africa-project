@@ -33,7 +33,7 @@
 		    <label>
 		      <input type="checkbox" id="rememberMe" name="autologin" value="saveID"> 아이디 저장하기
 		    </label>
-	   </div>
+	    </div>
 	   
 	   <input type="submit" value="로그인" class="btn btn-lg btn-block btn-primary" >
 	   <a href="<c:url value="/*.do"/>" class="btn btn-lg btn-primary btn-block" >홈으로</a>

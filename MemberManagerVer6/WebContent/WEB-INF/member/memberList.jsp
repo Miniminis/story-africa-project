@@ -23,6 +23,11 @@
 		margin-top: 50px;
 		color: #fff;
 	}
+	#listImg {
+		width: 50px; 
+		height: 50px;
+		border-radius: 20px;
+	}
 </style>
 </head>
 <body class="text-center">
@@ -54,7 +59,7 @@
 			      <td>${member.userid}</td>
 			      <td>${member.username}</td>
 			      <td>${member.userpw}</td>
-			      <td><img src='<c:url value="${member.userphoto}"/>' width="50px" height="50px"></td>
+			      <td><img src='<c:url value="${member.userphoto}"/>' id="listImg"></td>
 			      <td>${member.regdate}</td>
 			      <td><a href="#">수정</a>    <a href="<c:url value="deleteForm.do?memberIdx=${member.idx}"/>">삭제</a></td> 
 			    </tr>

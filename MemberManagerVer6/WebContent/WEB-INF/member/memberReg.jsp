@@ -27,13 +27,20 @@
 	  border-top-left-radius: 0;
 	  border-top-right-radius: 0;
 	}
+	.profile-img {
+		width: 150px;
+		height: 150px;
+		margin-bottom: 50px;
+		border-radius: 100px;
+		border: 10px solid #FAD02C;
+	}
 </style>
 </head>
 
 <body class="text-center">
 	<!-- content start -->
 	<form class="form-signin">	
-		<img class="profile-img" src="${member.userphoto}" alt="" width="72" height="72">
+		<img class="profile-img" src="${member.userphoto}">
 		<h4 class="mb-3 font-weight-normal">${resultCnt}명의 회원님이 회원가입을 완료하였습니다.</h4>
 		
 		<label for="inputEmail" class="sr-only">이메일 주소(아이디)</label>
@@ -44,10 +51,6 @@
 		
 		<label for="inputUsername" class="sr-only">이름</label>
 		<input type="text" value="${member.username}" class="form-control" disabled>
-		
-		<label>
-			<input type="file" name="uphoto" class="form-control" placeholder="">
-		</label>
 		
 	   	<a href="<c:url value='loginForm.do'/>"><input type="button" value="로그인하기 " class="btn btn-lg btn-primary btn-block" ></a>
  		<a href="<c:url value='/*.do'/>"><input type="button" value="홈으로 " class="btn btn-lg btn-primary btn-block" ></a>

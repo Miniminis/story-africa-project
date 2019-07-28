@@ -19,7 +19,7 @@
 </head>
 <body class="text-center">
 	<!-- content start -->
-	<c:if test="${sessionScope.LoginInfo ne null}">
+	<c:if test="${sessionScope.LoginInfo ne null && LoginInfo.userid eq 'admin@admin'}">
 		<form action="deleteProcess.do" method="post" class="form-signin">
 			<img class="profile-img" src="image/zootopia_1.jpg">
 			<h1 class="h3 mb-3 font-weight-normal">회원삭제</h1>
@@ -36,12 +36,12 @@
 		</form>
 	</c:if>
 	
-	<c:if test="${sessionScope.LoginInfo eq null }">
+	<c:if test="${sessionScope.LoginInfo eq null || LoginInfo.userid ne 'admin@admin'}">
 		<script>
 			alert('관리자의 로그인이 필요합니다!');
+			location.href="<c:url value='/loginForm.do'/>";
 		</script>
 	</c:if>
-	
 	
 	<!-- content end -->
 </body>

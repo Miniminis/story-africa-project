@@ -3,6 +3,7 @@
 html,
 body {
   height: 100%;
+  margin-bottom: 0;
 }
 
 body {
@@ -11,14 +12,18 @@ body {
 	-ms-flex-align: center;
 	align-items: center;
 	padding-top: 40px;
-	padding-bottom: 40px;
+	/* padding-bottom: 40px; */
 	background-color: #333;
-	color: #fff
+	color: #fff;
 }
 .btn-primary {
 	background-color: transparent;
 	border: .05rem solid #FAD02C;	
-	color: btn-primary;
+	color: #FAD02C;
+}
+.btn-primary:hover {
+	background-color: #FAD02C;
+	color: #333;
 }
 
 .profile-img {
@@ -33,7 +38,7 @@ body {
   width: 100%;
   max-width: 330px;
   padding: 15px;
-  margin: 100px auto;
+  margin: auto;
 }
 .form-signin .checkbox {
   font-weight: 400;
@@ -59,7 +64,6 @@ body {
   border-top-right-radius: 0;
 }
 
-
 .form-signin input[type="submit"] {
-	margin: 5px 0;
+	margin: 15px 0 5px;
 }

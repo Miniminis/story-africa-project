@@ -101,7 +101,7 @@ public class RegMemberService implements MemberService{
 		try {
 			conn = ConnectionProvider.getConnection();		
 			
-			System.out.println("33 "+member.getUserid());
+			System.out.println("33 "+member.toString());
 			
 			MemberDao dao = MemberDao.getInstance();
 			resultCnt = dao.insert(conn, member);			

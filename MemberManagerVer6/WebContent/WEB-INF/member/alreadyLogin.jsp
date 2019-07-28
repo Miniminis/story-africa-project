@@ -14,24 +14,40 @@
 <link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <link href="static/default.css" rel="stylesheet" type="text/css">
-<link href="static/login.css" rel="stylesheet" type="text/css">
 
 <style>
-	.mb-auto {
-		margin-bottom: 50px!important;
-	}
 	.table {
 		width: 100%;
 		max-width: 330px;
 		margin: 0 auto;
 		color: #fff;
 	}
+
+	.btn {
+		width: 360px;
+		margin-top: 10px;
+	}
+	
+	.mb-auto {
+		margin-bottom: 50px!important;
+	}
+
 	.profile-img {
 		width: 150px;
 		height: 150px;
 		margin-bottom: 50px;
 		border-radius: 100px;
 		border: 10px solid #FAD02C;
+	}
+	
+	.btn-primary {
+		background-color: transparent;
+		border: .05rem solid #FAD02C;	
+		color: #FAD02C;
+	}
+	.btn-primary:hover {
+		background-color: #FAD02C;
+		color: #333;
 	}
 	
 </style>
@@ -64,7 +80,7 @@
 			    </tr>	 
 			</table>
 			
-			<a href="<c:url value="/logout.do"/>" class="btn btn-lg btn-primary btn-block" >다른 계정으로 로그인하기</a>
+			<a href="<c:url value="/logout.do"/>" class="btn btn-lg btn-primary" >다른 계정으로 로그인하기</a>
 		</c:if>
 		
 		<c:if test="${sessionScope.LoginInfo eq null}">
