@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+	<display-name>MemberManager</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+	<!-- error page setting -->
+	<!--2순위: 예외타입 -->
+	<error-page>
+		<exception-type>java.lang.NullPointerException</exception-type>
+		<location>/errorPage/NullPointerException.jsp</location>
+	</error-page>
+
+	<!--3순위: 에러코드 -->
+	<error-page>
+		<error-code>404</error-code>
+		<location>/errorPage/404error.jsp</location>
+	</error-page>
+
+	<error-page>
+		<error-code>500</error-code>
+		<location>/errorPage/500error.jsp</location>
+	</error-page>
+
+
+	<!-- 코드조각 자동포함 설정 - 단점: 원하는 위치에 알맞게 include 시킬 수 없다. -->
+	
+	<!-- JDBC Driver 로드  -->	
+	
+	<!-- DB 연결  -->
+	<servlet>
+	    <servlet-name>DBCPInit</servlet-name>
+	    <servlet-class>jdbc.DBCPInitMysql</servlet-class>
+	    <load-on-startup>1</load-on-startup>
+	  </servlet>
+	
+
+</web-app>
+
+
+
+
+	
