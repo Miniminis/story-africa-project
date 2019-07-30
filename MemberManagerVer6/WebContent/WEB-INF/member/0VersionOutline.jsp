@@ -131,6 +131,9 @@ application.setAttribute(userid, regData)
 - post >> login 처리  
 	- 서버로 보낼때: 외부 노출 방지위해서 POST 방식 사용!!! 
 	- 파일 업로드 : 반드시 반드시 post 방식 
+2. 게시판 4개 
+- memberinfo 테이블과 관계형 데이터 테이블 
+- exerd 사용해서 테이블 관계부터 설정 
  -->
 
 
