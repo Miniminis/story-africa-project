@@ -112,6 +112,8 @@ application.setAttribute(userid, regData)
  -->
 
 
+<!-- ver 7.0 Spring legecy project : MVC 패턴으로 구조 변경 -->
+
 
 
 

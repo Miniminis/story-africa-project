@@ -52,7 +52,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<link href="${pageContext.request.contextPath}/static/login.css" rel="stylesheet" type="text/css">
+<link href="<c:url value='/static/login.css'/>" rel="stylesheet" type="text/css">
 <style>
 	.form-signin input[type="password"] {
 	  margin-bottom: -1px;
@@ -81,7 +81,7 @@
 	<!-- content start -->
 	<c:url value=""/>
 	<form action="regMember" method="post" class="form-signin" enctype="multipart/form-data">
-		<img class="profile-img" src="${pageContext.request.contextPath}/image/zootopia_1.jpg">
+		<img class="profile-img" src="<c:url value='/image/zootopia_1.jpg'/>">
 		<h1 class="h3 mb-3 font-weight-normal">회원가입</h1>
 
 		<label for="inputEmail" class="sr-only">이메일 주소(아이디)</label>

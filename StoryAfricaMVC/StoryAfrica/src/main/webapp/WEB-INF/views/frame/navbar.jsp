@@ -10,7 +10,7 @@
 	<a class="nav-link" href="<c:url value='/index'/>">사업</a>
 	<a class="nav-link" href="<c:url value='/index'/>">봉사</a>
 	<a class="nav-link" href="<c:url value='/member/memberlist?page=1'/>">회원리스트</a>
-	<a class="nav-link" href="<c:url value='/member/regform'/>">회원가입</a>	
+	<a class="nav-link" href="<c:url value='/member/regform'/>">회원가입</a>
 	<a class="dropdown-toggle nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" 
 		aria-haspopup="true" aria-expanded="false">
       	로그인

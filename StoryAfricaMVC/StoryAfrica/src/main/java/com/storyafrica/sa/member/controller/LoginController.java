@@ -44,7 +44,7 @@ public class LoginController {
 			viewpage = "redirect:/";
 		}
 		//2. 미로그인 상태 --> 위에서 정의된 viewpage 가 그대로 return
-		System.out.println("또 로그인 할라고 할때 : "+viewpage);
+		System.out.println("미 로그인상태에서 로그인시도시 : "+viewpage);
 		return viewpage;
 	}
 	
@@ -62,7 +62,7 @@ public class LoginController {
 		String viewpage = "/member/loginfail";
 
 		chk = loginService.loginProcess(uid, upw, req);
-		System.out.println("로그인 성공햇니?:"+chk);
+		System.out.println("컴터야, 로그인 성공햇니?:"+chk);
 		
 		//로그인 성공 시 뷰페이지 
 		if(chk) {
@@ -71,4 +71,5 @@ public class LoginController {
 		
 		return viewpage;
 	}
+
 }

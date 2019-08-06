@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<link href="static/default.css" rel="stylesheet" type="text/css">
+<link href="<c:url value='/static/default.css'/>" rel="stylesheet" type="text/css">
 
 <style>
 	.mb-auto {
@@ -44,33 +44,22 @@
 				
 		<!-- content start -->
 		<div id="content" role="main" class="inner cover">
-		
-		<c:if test="${sessionScope.LoginInfo ne null}">
-			<img src="<c:url value='${sessionScope.LoginInfo.userphoto}'/>" class="profile-img"><br>
-			<h3>내정보 보기</h3>
-			<table class="table">
-			    <tr>
-			      <th scope="col">아이디</th>
-			      <td>${sessionScope.LoginInfo.userid}</td>
-			    </tr>
-			    <tr>
-			      <th scope="row">이름</th>
-			      <td>${sessionScope.LoginInfo.username}</td>
-			    </tr>
-			    <tr>
-			      <th scope="row">가입일</th>
-			      <td>${sessionScope.LoginInfo.regdate}</td>
-			    </tr>	 
-			</table>
-		</c:if>
-		
-		<c:if test="${sessionScope.LoginInfo eq null}">
-			<script>
-				alert('로그인이 필요한 페이지입니다!');
-				location.href="<c:url value='/loginForm.do'/>";
-			</script>
-		</c:if>
-		
+		<img src="<c:url value='/uploadedfile/userphoto/${sessionScope.LoginInfo.userphoto}'/>" class="profile-img"><br>
+		<h3>내정보 보기</h3>
+		<table class="table">
+		    <tr>
+		      <th scope="col">아이디</th>
+		      <td>${sessionScope.LoginInfo.userid}</td>
+		    </tr>
+		    <tr>
+		      <th scope="row">이름</th>
+		      <td>${sessionScope.LoginInfo.username}</td>
+		    </tr>
+		    <tr>
+		      <th scope="row">가입일</th>
+		      <td>${sessionScope.LoginInfo.regdate}</td>
+		    </tr>	 
+		</table>		
 		</div>
 	</div>
 </body>
