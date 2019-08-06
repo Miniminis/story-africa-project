@@ -41,3 +41,6 @@ drop table memberinfo;
 select * from memberinfo where userid="minis";
 
 
+select username from memberinfo where idx=2;
+
+select * from memberinfo;

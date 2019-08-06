@@ -133,3 +133,17 @@ Servers/Tomcat v8.5 Server at localhost-config/context.xml
 Servers/Tomcat v8.5 Server at localhost-config/server.xml
 Servers/Tomcat v8.5 Server at localhost-config/tomcat-users.xml
 Servers/Tomcat v8.5 Server at localhost-config/web.xml
+StoryAfricaMVC/Servers/Pivotal tc Server Developer Edition v4.0-config/catalina.policy
+StoryAfricaMVC/Servers/Pivotal tc Server Developer Edition v4.0-config/catalina.properties
+StoryAfricaMVC/Servers/Pivotal tc Server Developer Edition v4.0-config/context.xml
+StoryAfricaMVC/Servers/Pivotal tc Server Developer Edition v4.0-config/jmxremote.access
+StoryAfricaMVC/Servers/Pivotal tc Server Developer Edition v4.0-config/jmxremote.password
+StoryAfricaMVC/Servers/Pivotal tc Server Developer Edition v4.0-config/server.xml
+StoryAfricaMVC/Servers/Pivotal tc Server Developer Edition v4.0-config/tomcat-users.xml
+StoryAfricaMVC/Servers/Pivotal tc Server Developer Edition v4.0-config/web.xml
+StoryAfricaMVC/Servers/Tomcat v8.5 Server at localhost-config/catalina.policy
+StoryAfricaMVC/Servers/Tomcat v8.5 Server at localhost-config/catalina.properties
+StoryAfricaMVC/Servers/Tomcat v8.5 Server at localhost-config/context.xml
+StoryAfricaMVC/Servers/Tomcat v8.5 Server at localhost-config/server.xml
+StoryAfricaMVC/Servers/Tomcat v8.5 Server at localhost-config/tomcat-users.xml
+StoryAfricaMVC/Servers/Tomcat v8.5 Server at localhost-config/web.xml

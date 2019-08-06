@@ -7,7 +7,7 @@ CREATE TABLE GUESTBOOK_MESSAGE (
     MESSAGE text NOT NULL
 );
 
-desc guestbook_message;
+desc guestbook_message;guestbook_message
 
 drop table guestbook_message;
 
@@ -15,7 +15,7 @@ drop table guestbook_message;
 select * from guestbook_message;
 
 -- 테이블 리스트 출력을 위한 확인용 dummy 데이터 삽입 
-INSERT INTO GUESTBOOK_MESSAGEguestbook_message (GUEST_NAME, PASSWORD, MESSAGE) values ("minhee","1111","다녀가요~!111");
+INSERT INTO GUESTBOOK_MESSAGE (GUEST_NAME, PASSWORD, MESSAGE) values ("minhee","1111","다녀가요~!111");
 INSERT INTO GUESTBOOK_MESSAGE (GUEST_NAME, PASSWORD, MESSAGE) values ("jb","2222","나는 잠이 더 필요해22");
 INSERT INTO GUESTBOOK_MESSAGE (GUEST_NAME, PASSWORD, MESSAGE) values ("yj","333","나는 잠이 더 필요해333");
 INSERT INTO GUESTBOOK_MESSAGE (GUEST_NAME, PASSWORD, MESSAGE) values ("gg","groomy","나는 잠이 더 필요해444");
