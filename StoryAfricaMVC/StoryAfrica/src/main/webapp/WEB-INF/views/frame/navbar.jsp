@@ -4,12 +4,12 @@
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" rel="stylesheet">
 
 <div id="navbar" class="nav nav-masthead justify-content-center">
-	<a class="nav-link active" href="<c:url value='/index'/>">홈</a>
-	<a class="nav-link" href="<c:url value='/index'/>">경험</a>
-	<a class="nav-link" href="<c:url value='/index'/>">여행</a>
-	<a class="nav-link" href="<c:url value='/index'/>">사업</a>
-	<a class="nav-link" href="<c:url value='/index'/>">봉사</a>
-	<a class="nav-link" href="<c:url value='/member/memberlist?page=1'/>">회원리스트</a>
+	<a class="nav-link active" href="<c:url value='/'/>">홈</a>
+	<a class="nav-link" href="<c:url value='/'/>">경험</a>
+	<a class="nav-link" href="<c:url value='/'/>">여행</a>
+	<a class="nav-link" href="<c:url value='/'/>">사업</a>
+	<a class="nav-link" href="<c:url value='/'/>">봉사</a>
+	<a class="nav-link" href="<c:url value='/member/memberlist'/>">회원리스트</a>
 	<a class="nav-link" href="<c:url value='/member/regform'/>">회원가입</a>
 	<a class="dropdown-toggle nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" 
 		aria-haspopup="true" aria-expanded="false">

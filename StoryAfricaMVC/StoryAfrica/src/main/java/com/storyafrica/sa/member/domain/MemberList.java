@@ -4,70 +4,117 @@ import java.util.List;
 
 public class MemberList {
 	
-	private int articleTotalCnt; //총 게시글 수 
-	private int curPageNum; //현재 페이지 번호 
-	private int pageTotalCnt; //전체 페이지 개수 
-	private int startRow; //리스트 시작줄 
+	/* 리스트 출력 페이지에 필요한 데이터 
+	 * 1. 멤버 타입의 리스트 
+	 * 2. 한 페이지 당 출력 개수 
+	 * 3. 전체 페이지 번호 
+	 * 4. 현재 페이지 번호 
+	 * 5. 전체 회원 개수 
+	 * 6. 리스트의 시작 row 
+	 * */
 	private List<Member> memberList; //리스트 타입의 객체 
-	private int ARTICLE_COUNT_PER_PAGE; //한페이지 당 게시글의 수 FINAL
+	private int memberNumPerPage; //한 페이지 당 출력개수 
+	private int totalPageNum; //전체 페이지 수 
+	private int curPageNum; //현제 페이지 수 
+	private int totalMemNum; //전체 회원 수 
+	private int startRow;  //한 리스트의 시작 점 
 	
-	public MemberList () {}	
-	
-	public MemberList(int articleTotalCnt, int curPageNum, int startRow,
-			List<Member> memberList, int ARTICLE_COUNT_PER_PAGE) {
-		this.articleTotalCnt = articleTotalCnt;
-		this.curPageNum = curPageNum;
-		this.startRow = startRow;
+	public MemberList () {}
+
+
+	public MemberList(List<Member> memberList, int memberNumPerPage, int totalPageNum, int curPageNum, int totalMemNum,
+			int startRow) {
+		super();
 		this.memberList = memberList;
-		this.ARTICLE_COUNT_PER_PAGE = ARTICLE_COUNT_PER_PAGE;
-		calculatePageTotalCnt();
-	}
-	
-	//전체 페이지 번호 매서드 
-	private void calculatePageTotalCnt() {
-		
-		//	7/3 = 2 + (7%3 >0 이면 1);
-		if(articleTotalCnt==0) { //만약 게시글이 0개라면 
-			pageTotalCnt=0;		//전체 페이지 번호도 0번
-		} else {				//게시글이 1개 이상이면 
-			pageTotalCnt = articleTotalCnt / ARTICLE_COUNT_PER_PAGE; //전체 게시글의 수 / 페이지 당 게시글의 수 = 전체 페이지 번호
-			
-			if(articleTotalCnt % ARTICLE_COUNT_PER_PAGE >0) {			//만약 위의 연산 결과 나머지가 있다면 
-				pageTotalCnt = pageTotalCnt + 1;					//전체 페이지 번호 + 1
-			}
-		}	
+		this.memberNumPerPage = memberNumPerPage;
+		this.totalPageNum = totalPageNum;
+		this.curPageNum = curPageNum;
+		this.totalMemNum = totalMemNum;
+		this.startRow = startRow;
 	}
 
-	public int getArticleTotalCnt() {
-		return articleTotalCnt;
+
+
+	public List<Member> getMemberList() {
+		return memberList;
 	}
+
+
+
+	public void setMemberList(List<Member> memberList) {
+		this.memberList = memberList;
+	}
+
+
+
+	public int getMemberNumPerPage() {
+		return memberNumPerPage;
+	}
+
+
+
+	public void setMemberNumPerPage(int memberNumPerPage) {
+		this.memberNumPerPage = memberNumPerPage;
+	}
+
+
+
+	public int getTotalPageNum() {
+		return totalPageNum;
+	}
+
+
+
+	public void setTotalPageNum(int totalPageNum) {
+		this.totalPageNum = totalPageNum;
+	}
+
+
 
 	public int getCurPageNum() {
 		return curPageNum;
 	}
 
-	public int getPageTotalCnt() {
-		return pageTotalCnt;
+
+
+	public void setCurPageNum(int curPageNum) {
+		this.curPageNum = curPageNum;
 	}
+
+
+
+	public int getTotalMemNum() {
+		return totalMemNum;
+	}
+
+
+
+	public void setTotalMemNum(int totalMemNum) {
+		this.totalMemNum = totalMemNum;
+	}
+
+
 
 	public int getStartRow() {
 		return startRow;
 	}
 
 
-	public List<Member> getMemberList() {
-		return memberList;
+
+	public void setStartRow(int startRow) {
+		this.startRow = startRow;
+	}
+
+
+	@Override
+	public String toString() {
+		return "MemberList [memberList=" + memberList + ", memberNumPerPage=" + memberNumPerPage + ", totalPageNum="
+				+ totalPageNum + ", curPageNum=" + curPageNum + ", totalMemNum=" + totalMemNum + ", startRow="
+				+ startRow + "]";
 	}
 	
-	public int getARTICLE_COUNT_PER_PAGE() {
-		return ARTICLE_COUNT_PER_PAGE;
-	}
+	
 
-
-	//메시지 리스트가 0일때 전체 메시지 개수 
-	public boolean isEmpty() {
-		return pageTotalCnt ==0; 
-	}
 	
 
 }

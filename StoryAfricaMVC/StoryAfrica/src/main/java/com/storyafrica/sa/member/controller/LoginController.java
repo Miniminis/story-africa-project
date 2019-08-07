@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.storyafrica.sa.member.domain.LoginInfo;
 import com.storyafrica.sa.member.service.LoginService;
 
 @Controller
@@ -43,6 +44,8 @@ public class LoginController {
 		if(session != null && session.getAttribute("LoginInfo") != null) {
 			viewpage = "redirect:/";
 		}
+		//System.out.println("session.getAttribute(\"LoginInfo\") : "+((LoginInfo) session.getAttribute("LoginInfo")).getUserid() );
+
 		//2. 미로그인 상태 --> 위에서 정의된 viewpage 가 그대로 return
 		System.out.println("미 로그인상태에서 로그인시도시 : "+viewpage);
 		return viewpage;

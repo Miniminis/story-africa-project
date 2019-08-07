@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<link href="static/default.css" rel="stylesheet" type="text/css">
+<link href="<c:url value='/static/default.css'/>" rel="stylesheet" type="text/css">
 <style>
 	.mb-auto {
 		margin-bottom: 50px!important;
@@ -22,6 +22,15 @@
 	.table {
 		margin-top: 50px;
 		color: #fff;
+	}
+	#listImg {
+		width: 50px; 
+		height: 50px;
+		border-radius: 20px;
+	}
+	.form-inline {
+		display: block;
+		margin: 10px;
 	}
 </style>
 </head>
@@ -48,15 +57,15 @@
 			  </thead>
 			  <tbody>
 			  <!-- 회원리스트 반복의 시작 -->
-			  <c:forEach var="member" items="${list.memberList}">
+			  <c:forEach var="member" items="${list.memberList}" varStatus="stat">
 			    <tr>
-			      <th scope="row">${member.idx}</th>
+			      <th scope="row">${list.startRow - stat.index}</th>
 			      <td>${member.userid}</td>
 			      <td>${member.username}</td>
 			      <td>${member.userpw}</td>
-			      <td><img src='<c:url value="${member.userphoto}"/>' width="50px" height="50px"></td>
+			      <td><img src='<c:url value="/uploadedfile/userphoto/${member.userphoto}"/>' id="listImg"></td>
 			      <td>${member.regdate}</td>
-			      <td><a href="#">수정</a>    <a href="<c:url value="deleteForm.do?memberIdx=${member.idx}"/>">삭제</a></td> 
+			      <td><a href="#">수정</a>    <a href="<c:url value="deleteForm?memberIdx=${member.idx}"/>">삭제</a></td> 
 			    </tr>
 			   </c:forEach>
 			   <!-- 회원리스트 반복의 끝 -->
@@ -65,10 +74,38 @@
 			</table>
 			
 			<h6>현재 회원님은  ${list.curPageNum}번 페이지에 있습니다.</h6>
+			<c:if test="${list.totalMemNum>0 }">
+				<c:forEach begin="1" end="${list.totalPageNum}" step="1" var="i">
+					<%-- <a href='<c:url value="/member/memberlist?page=${i}"/>'>[${i}]</a> --%>
+					<a href='<c:url value="/member/memberlist?
+						page=${i}
+						&searchType=${param.searchType}
+						&keyword=${param.keyword}
+						&searchPeriod=${param.searchPeriod}"/>'>[${i}]</a>
+				</c:forEach>
+			</c:if>
+
 			
-			<c:forEach begin="1" end="${list.pageTotalCnt}" step="1" var="i">
-				<a href="memberlist.do?page=${i}">[${i}]</a>
-			</c:forEach>
+			<!-- 회원검색기능  -->
+			<form class="form-inline my-2 my-lg-0" method="get">
+				<select class="browser-default custom-select" name="searchPeriod">
+				  <option value="AllPeriod" selected>전체기간</option>
+				  <option value="day">1일</option>
+				  <option value="week">1주</option>
+				  <option value="month">1개월</option>
+				  <option value="year">1년</option>
+				</select>	
+				
+				<select class="browser-default custom-select" name="searchType">
+				  <option value="idPlusName" selected>아이디+이름</option>
+				  <option value="id">아이디</option>
+				  <option value="name">이름</option>
+				</select>
+				
+		      <input class="form-control" type="search" name="keyword" placeholder="회원검색" aria-label="Search">
+		      <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">검색하기</button>
+		    </form>			
+			
 		</div>
 		<!-- content end -->
 		
