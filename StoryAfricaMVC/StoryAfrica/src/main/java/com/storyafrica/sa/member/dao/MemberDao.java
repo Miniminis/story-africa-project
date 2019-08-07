@@ -40,7 +40,7 @@ public class MemberDao {
 		return rsCnt;
 	}
 	
-	//로그인 확인을 위한 selectMemberById 매서드 
+	//아이디 통해서 검색
 	public Member selectMemberById(Connection conn, String userid) {
 		
 		String sql = "select * from memberinfo where userid=?";
@@ -218,6 +218,42 @@ public class MemberDao {
 		System.out.println("===DAO2 END====");
 		
 		return memberlist;
+	}
+	
+	//idx 통해서 검색하기 
+	public Member selectMemberByIdx(Connection conn, int memberIdx) {
+		
+		String sql = "select * from memberinfo where idx=?";
+		PreparedStatement pstmt = null;
+		
+		ResultSet rs = null;
+		
+		Member member = null;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberIdx);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs !=null && rs.next()) {				
+				member = new Member();
+				
+				member.setIdx(rs.getInt(1));
+				member.setUserid(rs.getString(2));
+				member.setUserpw(rs.getString(3));
+				member.setUsername(rs.getString(4));
+				member.setUserphoto(rs.getString(5));
+				member.setRegdate(rs.getDate(6));
+				
+				System.out.println("selectMemberById 2 : "+member.toString());
+			}			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	
+		return member;
 	}
 	
 	//회원삭제 

@@ -18,7 +18,7 @@
 	  border-top-right-radius: 0;
 	}
 	.form-signin input[type="text"] {
-	  margin-bottom: 10px;
+	  margin-bottom: -1px;
 	  border-top-left-radius: 0;
 	  border-top-right-radius: 0;
 	}
@@ -33,12 +33,12 @@
 <body class="text-center">
 	<!-- content start -->
 	<c:if test="${resultCnt == 1}">
-		<form class="form-signin">	
+		<form class="form-signin">
 			<img class="profile-img" src="<c:url value='/uploadedfile/userphoto/${member.userphoto}'/>" alt="" width="72" height="72">
 			<h4 class="mb-3 font-weight-normal">${resultCnt}명의 회원님이 회원가입을 완료하였습니다.</h4>
 			
 			<label for="inputEmail" class="sr-only">이메일 주소(아이디)</label>
-			<input type="email" value="${member.userid}" class="form-control" disabled>
+			<input type="text" value="${member.userid}" class="form-control" disabled>
 			
 			<label for="inputPassword" class="sr-only">비밀번호</label>
 			<input type="password" value="${member.userpw}" class="form-control" disabled>

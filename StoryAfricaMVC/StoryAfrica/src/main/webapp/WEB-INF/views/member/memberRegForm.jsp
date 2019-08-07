@@ -86,7 +86,7 @@
 
 		<label for="inputEmail" class="sr-only">이메일 주소(아이디)</label>
 		<input type="checkbox" id="idchk">
-		<input type="email" name="userid" id="inputEmail" class="form-control" placeholder="이메일 주소(아이디)" required autofocus>
+		<input type="text" name="userid" id="inputEmail" class="form-control" placeholder="이메일 주소(아이디)" required autofocus>
 		<span id="idchkmsg"></span>
 		
 		<label for="inputPassword" class="sr-only">비밀번호</label>

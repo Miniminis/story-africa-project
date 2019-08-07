@@ -36,8 +36,8 @@ public class RegService implements MemberService {
 		//절대 경로 : request, session, servletcontext, getrealpath 
 		String dir = req.getSession().getServletContext().getRealPath(path);
 		//파일이름 중복 방지를 위한 이름 재정의
+		
 		String newfileName = member.getUserid()+"_"+memberRegist.getUserphoto().getOriginalFilename();
-
 		
 		//반환 변수 
 		int resultCnt = 0;
@@ -46,10 +46,15 @@ public class RegService implements MemberService {
 		try {
 			conn = dataSource.getConnection();
 			
-			//파일을 서버의 지정 경로에 저장 
-			memberRegist.getUserphoto().transferTo(new File(dir, newfileName));
-			System.out.println("dir" + dir);
-			System.out.println("newfileName"+newfileName);
+			//파일을 서버의 지정 경로에 저장 - 파일 객체 존재 여부에 따라 분기 처리 
+			if(memberRegist.getUserphoto().isEmpty()) {
+				newfileName = "noImg.png";
+				//파일이 없다면 따로 서버에 저장해주지 않는다. 
+			} else {
+				memberRegist.getUserphoto().transferTo(new File(dir, newfileName));
+			}
+			
+			System.out.println("=====dir, newfiename : "+dir+"===="+newfileName+"=======");
 			
 			//아까 저장하지 못한 파일을 member 객체에 저장
 			member.setUserphoto(newfileName);
@@ -58,7 +63,7 @@ public class RegService implements MemberService {
 			resultCnt = dao.insert(conn, member);
 			//저장된 DB의 member 정보를 기존의 member 객체에 덮어씌우기 
 			member = dao.selectMemberById(conn, member.getUserid());
-			
+			System.out.println("==regservice"+member+"==regservice END");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (IllegalStateException e) {

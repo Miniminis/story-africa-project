@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.storyafrica.sa.member.domain.ListSearchParam;
+import com.storyafrica.sa.member.domain.LoginInfo;
 import com.storyafrica.sa.member.domain.MemberList;
 import com.storyafrica.sa.member.service.MemberListService;
 
@@ -36,7 +37,7 @@ public class ListController {
 								) {
 		
 		//default 미로그인 - 로그인 요청 페이지 
-		String viewpage = "/member/loginRequired";
+		String viewpage = "/member/loginRequiredAdmin";
 		
 		HttpSession session = req.getSession(false);
 		
@@ -59,13 +60,17 @@ public class ListController {
 
 		//로그인 시
 		if(session != null && session.getAttribute("LoginInfo") != null) {
+			
+			LoginInfo loginInfo = (LoginInfo) session.getAttribute("LoginInfo");
+			
+			if(loginInfo.getUserid().equals("admin")) {
+				MemberList list = memberListService.getMemberList(page, sparam);
+				
+				model.addAttribute("list", list);
+				
+				viewpage = "/member/memberList";
+			}
 
-			MemberList list = memberListService.getMemberList(page, sparam);
-			
-			model.addAttribute("list", list);
-			
-			viewpage = "/member/memberList";
-			
 		}		
 		
 		return viewpage;

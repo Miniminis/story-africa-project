@@ -24,7 +24,7 @@
 		<h1 class="h3 mb-3 font-weight-normal">로그인</h1>
 		
 		<label for="inputEmail" class="sr-only">이메일 주소(아이디)</label>
-		<input type="email" id="inputEmail" name="userid" class="form-control" placeholder="이메일 주소(아이디)" required autofocus>
+		<input type="text" id="inputEmail" name="userid" class="form-control" placeholder="이메일 주소(아이디)" required autofocus>
 		
 		<label for="inputPassword" class="sr-only">비밀번호</label>
 		<input type="password" id="inputPassword" name="userpw"  class="form-control" placeholder="비밀번호" required>

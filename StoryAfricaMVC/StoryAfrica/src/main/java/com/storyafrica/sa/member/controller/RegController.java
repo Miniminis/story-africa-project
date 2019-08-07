@@ -39,7 +39,7 @@ public class RegController {
 		
 		memberMap = regService.regist(memberRegist, req, memberMap);
 		
-		System.out.println(memberRegist.toString());
+		System.out.println("===controller"+memberRegist.toString()+"===controller END");
 		
 		model.addAllAttributes(memberMap);
 		

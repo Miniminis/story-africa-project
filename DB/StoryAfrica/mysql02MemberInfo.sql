@@ -56,5 +56,7 @@ select * from memberinfo where regdate between date_add(now(), interval -1 day) 
 select * from memberinfo where regdate between date_add(now(), interval -1 week) and now();
 select * from memberinfo where regdate between date_add(now(), interval -1 month) and now();
 select * from memberinfo where regdate between date_add(now(), interval -1 year) and now();
-select * from memberinfo where regdate between date_add(now(), interval -1 now()) and now();
+select * from memberinfo where regdate < now();
+
+select * from memberinfo;
 
