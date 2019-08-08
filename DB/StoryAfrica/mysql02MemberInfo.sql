@@ -35,7 +35,7 @@ select * from memberinfo where username like '%손민희%' order by idx desc lim
 
 delete from memberinfo where idx=1;
 delete from memberinfo where userid="mama3";
-select * from memberinfo;
+select * from memberinfo
 
 select userid, userpw, username, userphoto, regdate from memberinfo where userid="1@1" and userpw ="1"; 
 
@@ -44,7 +44,7 @@ drop table memberinfo;
 select * from memberinfo where userid="minis";
 
 
-select username from memberinfo where idx=2;
+select * from memberinfo where idx=2;
 
 select * from memberinfo;
 
@@ -59,4 +59,9 @@ select * from memberinfo where regdate between date_add(now(), interval -1 year)
 select * from memberinfo where regdate < now();
 
 select * from memberinfo;
+
+update memberinfo set userpw="0", username="삐리삐리", userphoto="noImg.png" where idx="2";
+
+
+
 
