@@ -84,7 +84,7 @@
 		<img class="profile-img" src="<c:url value='/image/zootopia_1.jpg'/>">
 		<h1 class="h3 mb-3 font-weight-normal">회원가입</h1>
 
-		<label for="inputEmail" class="sr-only">이메일 주소(아이디)</label>
+		<label for="inputEmail" class="sr-only">아이디</label>
 		<input type="checkbox" id="idchk">
 		<input type="text" name="userid" id="inputEmail" class="form-control" placeholder="이메일 주소(아이디)" required autofocus>
 		<span id="idchkmsg"></span>

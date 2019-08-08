@@ -74,5 +74,27 @@ public class LoginController {
 		
 		return viewpage;
 	}
+	
+	//로그아웃
+	@RequestMapping("/member/logout")
+	public String logoutProcess(HttpSession session) {
+		
+		session.invalidate();
+		System.out.println("세션 종료 됐니 컴터야? "+session.getId());
+		return "redirect:/"; //메인페이지로 리다이렉트 
+	}
+	
+	//마이페이지
+	@RequestMapping("/member/mypage")
+	public String showMyPage(HttpSession session) {
+		
+		String viewpage = "/member/myPage";
+		
+		if(session ==null || session.getAttribute("LoginInfo") == null) {
+			viewpage = "/member/loginRequired"; //로그인 필요 팝업창
+		}
+		
+		return viewpage;
+	}
 
 }

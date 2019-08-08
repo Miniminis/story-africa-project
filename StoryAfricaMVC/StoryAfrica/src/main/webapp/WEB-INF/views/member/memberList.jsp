@@ -65,7 +65,9 @@
 			      <td>${member.userpw}</td>
 			      <td><img src='<c:url value="/uploadedfile/userphoto/${member.userphoto}"/>' id="listImg"></td>
 			      <td>${member.regdate}</td>
-			      <td><a href="#">수정</a>    <a href="<c:url value="deleteForm?memberIdx=${member.idx}"/>">삭제</a></td> 
+			      <td><a href="<c:url value='editForm?memberIdx=${member.idx}'/>">수정</a>    
+			      	  <a href='#' onclick="deleteMember(${member.idx})">삭제</a>
+			      </td> 
 			    </tr>
 			   </c:forEach>
 			   <!-- 회원리스트 반복의 끝 -->
@@ -112,6 +114,15 @@
 		<!-- footer start  -->
 		<%@ include file="/WEB-INF/views/frame/footer.jsp"%>
 		<!-- footer end -->
-	</div>	
+	</div>
+<script>
+	function deleteMember(idx) {
+		
+		if(confirm('삭제 된 정보는 복구가 불가능합니다. 정말 삭제하시겠습니까? ')) {
+			location.href='<c:url value="/member/deleteProcess?memberIdx="/>'+idx;
+		}
+		
+	}
+</script>	
 </body>
 </html>

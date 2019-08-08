@@ -276,5 +276,31 @@ public class MemberDao {
 		
 		return rsCnt;
 	}
+	
+	//회원수정 
+	public int edit(Connection conn, Member member) {
+		int rscnt = 0;
+		
+		PreparedStatement pstmt;
+		String sql = " update memberinfo set userpw=?, username=?, "
+				+ " userphoto=? where idx=? ";
+		
+		System.out.println("===editDAO====="+member+"===========");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, member.getUserpw());
+			pstmt.setString(2, member.getUsername());
+			pstmt.setString(3, member.getUserphoto());
+			pstmt.setInt(4, member.getIdx());
+			
+			rscnt = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		System.out.println("===editDAO2====="+rscnt+"===========");
+		return rscnt;
+	}
 
 }

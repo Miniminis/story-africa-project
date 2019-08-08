@@ -19,24 +19,23 @@ public class DeleteController {
 	@Autowired
 	DeleteService deleteService;
 	
-	@RequestMapping("/member/deleteForm")
+	/*@RequestMapping("/member/deleteForm")
 	public String deleteForm(@RequestParam("memberIdx") int memberIdx, 
 							Model model) {		
 		
 		model.addAttribute("memberIdx", memberIdx);
 		
 		return "/member/delForm";
-	}
+	}*/
 	
 	@RequestMapping("/member/deleteProcess")
-	public String deleteProcess(@RequestParam("memberIdx") int memberIdx,
-								@RequestParam("userpwcheck") String userpwcheck,
-								Model model) {
+	public String deleteProcess(@RequestParam("memberIdx") int memberIdx) {
 		
 		int resultCnt = 0;
 		
 		try {
-			resultCnt = deleteService.deleteProcess(memberIdx, userpwcheck);
+			resultCnt = deleteService.deleteProcess(memberIdx);
+			
 		} catch (InvalidPasswordException e) {
 			e.printStackTrace();
 		} catch (MemberNotFoundException e) {
@@ -47,9 +46,9 @@ public class DeleteController {
 			e.printStackTrace();
 		}		
 		
-		model.addAttribute("resultCnt", resultCnt);
+		//model.addAttribute("resultCnt", resultCnt);
 		
-		return "/member/delProcess";
+		return "redirect:/member/memberlist";
 	}
 
 }

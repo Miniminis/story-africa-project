@@ -52,6 +52,10 @@
 		      <td>${sessionScope.LoginInfo.userid}</td>
 		    </tr>
 		    <tr>
+		      <th scope="col">아이디</th>
+		      <td>${sessionScope.LoginInfo.userid}</td>
+		    </tr>
+		    <tr>
 		      <th scope="row">이름</th>
 		      <td>${sessionScope.LoginInfo.username}</td>
 		    </tr>

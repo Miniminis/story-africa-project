@@ -22,7 +22,7 @@ public class DeleteService implements MemberService{
 	@Autowired
 	MemberDao dao;
 	
-	public int deleteProcess(int memberIdx, String userpwcheck) throws 
+	public int deleteProcess(int memberIdx) throws 
 	InvalidPasswordException, MemberNotFoundException, SQLException, WrongPasswordException {
 		int rscnt = 0;
 		
@@ -36,16 +36,10 @@ public class DeleteService implements MemberService{
 			
 			if(member == null) {
 				 throw new MemberNotFoundException("존재하지 않는 회원입니다! ");
-			} else if (member.getUserpw() == null
-					&& member.getUserpw().isEmpty()) {
-				throw new InvalidPasswordException("잘못된 비밀번호 형식입니다! ");
-			} else if(!member.getUserpw().equals(userpwcheck)) {
-				throw new WrongPasswordException("비밀번호가 일치하지 않습니다! ");
-			}
+			} 
 			
 			//확인되면 삭제
 			rscnt = dao.delete(conn, memberIdx);
-			
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -53,14 +47,7 @@ public class DeleteService implements MemberService{
 		} catch (MemberNotFoundException e) {
 			e.printStackTrace();
 			throw e;
-		} catch (InvalidPasswordException e) {
-			e.printStackTrace();
-			throw e;
-		} catch (WrongPasswordException e) {
-			e.printStackTrace();
-			throw e;
 		}
-		
 
 		return rscnt;
 	}
