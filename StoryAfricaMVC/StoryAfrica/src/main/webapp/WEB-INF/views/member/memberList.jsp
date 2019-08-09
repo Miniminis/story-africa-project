@@ -32,6 +32,9 @@
 		display: block;
 		margin: 10px;
 	}
+	.noSearchResult {
+		margin: 50px 0;
+	}
 </style>
 </head>
 <body class="text-center">
@@ -56,25 +59,33 @@
 			    </tr>
 			  </thead>
 			  <tbody>
-			  <!-- 회원리스트 반복의 시작 -->
-			  <c:forEach var="member" items="${list.memberList}" varStatus="stat">
-			    <tr>
-			      <th scope="row">${list.startRow - stat.index}</th>
-			      <td>${member.userid}</td>
-			      <td>${member.username}</td>
-			      <td>${member.userpw}</td>
-			      <td><img src='<c:url value="/uploadedfile/userphoto/${member.userphoto}"/>' id="listImg"></td>
-			      <td>${member.regdate}</td>
-			      <td><a href="<c:url value='editForm?memberIdx=${member.idx}'/>">수정</a>    
-			      	  <a href='#' onclick="deleteMember(${member.idx})">삭제</a>
-			      </td> 
-			    </tr>
-			   </c:forEach>
-			   <!-- 회원리스트 반복의 끝 -->
-			  </tbody>
 			  
+			  <c:if test="${list.totalMemNum >0}">
+			 	 <!-- 회원리스트 반복의 시작 -->	
+			  	 <c:forEach var="member" items="${list.memberList}" varStatus="stat">
+				    <tr>
+				      <th scope="row">${list.startRow - stat.index}</th>
+				      <td>${member.userid}</td>
+				      <td>${member.username}</td>
+				      <td>${member.userpw}</td>
+				      <td><img src='<c:url value="/uploadedfile/userphoto/${member.userphoto}"/>' id="listImg"></td>
+				      <td>${member.regdate}</td>
+				      <td><a href="<c:url value='editForm?memberIdx=${member.idx}'/>">수정</a>    
+				      	  <a href='#' onclick="deleteMember(${member.idx})">삭제</a>
+				      </td> 
+				    </tr>
+				   </c:forEach>
+				   <!-- 회원리스트 반복의 끝 -->
+			  </c:if>			   
+			  </tbody>
 			</table>
 			
+			<!-- 검색 결과와 일치하는 리스트가 없을떄  -->
+			<c:if test="${list.totalMemNum ==0 || list.totalMemNum <0}">
+			  <h4 class="noSearchResult"> 검색 결과가 없습니다! </h4>
+			</c:if>
+			 
+			<!-- 페이지 넘버링  -->  
 			<h6>현재 회원님은  ${list.curPageNum}번 페이지에 있습니다.</h6>
 			<c:if test="${list.totalMemNum>0 }">
 				<c:forEach begin="1" end="${list.totalPageNum}" step="1" var="i">

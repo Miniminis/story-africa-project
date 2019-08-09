@@ -17,29 +17,15 @@ import com.storyafrica.sa.member.domain.Member;
 
 @Service("editService")
 public class EditService {
-	
-	@Autowired
-	BasicDataSource dataSource;
 
 	@Autowired
 	MemberDao dao;
 	
 	public Member getMember(int memberIdx) {
 		
-		Connection conn;
-		Member member = null;
-		
-		try {
-			conn = dataSource.getConnection();
-			
-			member = dao.selectMemberByIdx(conn, memberIdx);		
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		return member;
-		
+		Member member = dao.selectMemberByIdx(memberIdx);		
+
+		return member;	
 	}
 	
 	public int editMember(EditedMember editedMember,
@@ -86,16 +72,8 @@ public class EditService {
 		}
 		
 		System.out.println("====editservice==="+member+"=======");
-		
-		try {
-			conn = dataSource.getConnection();
-			
-			rscnt = dao.edit(conn, member);
 
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} 
-		
+		rscnt = dao.edit(member);
 		
 		return rscnt;
 	}

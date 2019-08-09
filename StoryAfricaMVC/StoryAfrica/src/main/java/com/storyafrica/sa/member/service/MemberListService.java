@@ -17,9 +17,6 @@ import com.storyafrica.sa.member.domain.MemberList;
 public class MemberListService implements MemberService{
 	
 	@Autowired
-	BasicDataSource dataSource;
-	
-	@Autowired
 	private MemberDao dao;
 	
 	public MemberList getMemberList(int page, ListSearchParam sparam) {
@@ -36,40 +33,31 @@ public class MemberListService implements MemberService{
 		int startRow = 0;  //뷰 페이지에서 보이는 리스트의 시작점  
 		int index = 0; //리스트 페이지 당 출력을 
 		int curPageNum = page; //현제 페이지 번호  v
+			
+		//전체 멤버 수 
+		totalMemNum = dao.selectCnt(sparam);
+			
+		//각 페이지의 첫번째 row idx 구하기 
+		index = memberNumPerPage*(curPageNum-1);
+		startRow = totalMemNum - index;
+			
+		//DB에 있는 모든 회원 정보를 페이지당 5개씩만 표현 
+		mlist = dao.selectList(index, memberNumPerPage, sparam); 
 		
+		totalPageNum = totalMemNum/memberNumPerPage;
 		
-		try {
-			conn = dataSource.getConnection();
-			
-			//전체 멤버 수 
-			totalMemNum = dao.selectCnt(conn, sparam);
-			
-			//각 페이지의 첫번째 row idx 구하기 
-			index = memberNumPerPage*(curPageNum-1);
-			startRow = totalMemNum - index;
-			
-			//DB에 있는 모든 회원 정보를 페이지당 5개씩만 표현 
-			mlist = dao.selectList(conn, index, memberNumPerPage, sparam); 
-			
-			totalPageNum = totalMemNum/memberNumPerPage;
-			
-			if(totalMemNum % memberNumPerPage != 0) {
-				totalPageNum = totalPageNum+1;
-			}
-
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
+		if(totalMemNum % memberNumPerPage != 0) {
+			totalPageNum = totalPageNum+1;
 		}
 		
-		System.out.println("===SERVICE==");
+		System.out.println("=== LIST SERVICE==");
 		System.out.println(mlist);
 		System.out.println(memberNumPerPage);
 		System.out.println(totalPageNum);
 		System.out.println(curPageNum);
 		System.out.println(totalMemNum);
 		System.out.println(startRow);
-		System.out.println("===SERVICE END==");
+		System.out.println("===LIST SERVICE END==");
 
 		memberlistview.setMemberList(mlist);
 		memberlistview.setMemberNumPerPage(memberNumPerPage);

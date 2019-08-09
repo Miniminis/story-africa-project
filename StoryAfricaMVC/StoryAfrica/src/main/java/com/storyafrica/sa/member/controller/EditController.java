@@ -55,9 +55,4 @@ public class EditController {
 		
 		return "/member/editResult";
 	}
-	
-	
-	
-	
-
 }

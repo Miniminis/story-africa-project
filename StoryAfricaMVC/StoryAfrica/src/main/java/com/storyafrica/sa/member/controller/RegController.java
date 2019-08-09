@@ -30,9 +30,9 @@ public class RegController {
 	//2) 회원가입처리 
 	@RequestMapping(value = "/member/regMember", method = RequestMethod.POST)
 	public String registMember(
-			MemberRegist memberRegist,
-			HttpServletRequest req,
-			Model model) {
+								MemberRegist memberRegist,
+								HttpServletRequest req,
+								Model model) {
 		
 		//회원가입 처리 페이지로 보내줄 resultcnt, member 객체 Map 에 담아 보냄
 		Map<String, Object> memberMap = new HashMap<String, Object>();

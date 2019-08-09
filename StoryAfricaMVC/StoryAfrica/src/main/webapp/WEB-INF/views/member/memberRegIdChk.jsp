@@ -2,4 +2,4 @@
     pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
 
-${resultCode}
+${resultCode} <!-- from idChk() -->

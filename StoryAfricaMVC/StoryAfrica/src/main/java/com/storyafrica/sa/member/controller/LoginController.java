@@ -42,7 +42,7 @@ public class LoginController {
 		
 		//1. 로그인 상태 
 		if(session != null && session.getAttribute("LoginInfo") != null) {
-			viewpage = "redirect:/";
+			viewpage = "redirect:/"; //이미 로그인 되어있다면 메인페이지로 이동 
 		}
 		//System.out.println("session.getAttribute(\"LoginInfo\") : "+((LoginInfo) session.getAttribute("LoginInfo")).getUserid() );
 
