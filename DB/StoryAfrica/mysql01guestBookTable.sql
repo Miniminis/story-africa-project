@@ -2,12 +2,12 @@
 -- 게시물 정보를 저장할 테이블 생성 
 CREATE TABLE GUESTBOOK_MESSAGE (
     MESSAGE_ID int(6) PRIMARY KEY auto_increment,
-    GUEST_NAME VARCHAR(50) NOT NULL,
-    PASSWORD VARCHAR(20) NOT NULL,
-    MESSAGE text NOT NULL
+    gname VARCHAR(50) NOT NULL,
+    gpassword VARCHAR(20) NOT NULL,
+    gmessage text NOT NULL
 );
 
-desc guestbook_message;guestbook_message
+desc guestbook_message;
 
 drop table guestbook_message;
 
@@ -15,13 +15,13 @@ drop table guestbook_message;
 select * from guestbook_message;
 
 -- 테이블 리스트 출력을 위한 확인용 dummy 데이터 삽입 
-INSERT INTO GUESTBOOK_MESSAGE (GUEST_NAME, PASSWORD, MESSAGE) values ("minhee","1111","다녀가요~!111");
-INSERT INTO GUESTBOOK_MESSAGE (GUEST_NAME, PASSWORD, MESSAGE) values ("jb","2222","나는 잠이 더 필요해22");
-INSERT INTO GUESTBOOK_MESSAGE (GUEST_NAME, PASSWORD, MESSAGE) values ("yj","333","나는 잠이 더 필요해333");
-INSERT INTO GUESTBOOK_MESSAGE (GUEST_NAME, PASSWORD, MESSAGE) values ("gg","groomy","나는 잠이 더 필요해444");
-INSERT INTO GUESTBOOK_MESSAGE (GUEST_NAME, PASSWORD, MESSAGE) values ("55","55555","나는 잠이 더 필요해555");
-INSERT INTO GUESTBOOK_MESSAGE (GUEST_NAME, PASSWORD, MESSAGE) values ("66","666666","나는 잠이 더 필요해666666");
-INSERT INTO GUESTBOOK_MESSAGE (GUEST_NAME, PASSWORD, MESSAGE) values ("77","777777","나는 잠이 더 필요해777");
+INSERT INTO GUESTBOOK_MESSAGE (gname, gpassword, gmessage) values ("minhee","1111","다녀가요~!111");
+INSERT INTO GUESTBOOK_MESSAGE (gname, gpassword, gmessage) values ("jb","2222","나는 잠이 더 필요해22");
+INSERT INTO GUESTBOOK_MESSAGE (gname, gpassword, MESSAGE) values ("yj","333","나는 잠이 더 필요해333");
+INSERT INTO GUESTBOOK_MESSAGE (gname, gpassword, MESSAGE) values ("gg","groomy","나는 잠이 더 필요해444");
+INSERT INTO GUESTBOOK_MESSAGE (gname, gpassword, MESSAGE) values ("55","55555","나는 잠이 더 필요해555");
+INSERT INTO GUESTBOOK_MESSAGE (gname, gpassword, MESSAGE) values ("66","666666","나는 잠이 더 필요해666666");
+INSERT INTO GUESTBOOK_MESSAGE (gname, gpassword, MESSAGE) values ("77","777777","나는 잠이 더 필요해777");
 
 
 -- 테이블 리스트 3행씩 출력을 위한 쿼리문 작성 

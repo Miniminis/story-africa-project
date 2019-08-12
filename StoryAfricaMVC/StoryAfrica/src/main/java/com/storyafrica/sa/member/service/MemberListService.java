@@ -23,8 +23,6 @@ public class MemberListService implements MemberService{
 		//반환 정보 
 		MemberList memberlistview = new MemberList();
 		
-		Connection conn;
-		
 		//MemberList 객체 출력을 위해 필요한 데이터들 
 		List<Member> mlist = null;//리스트 타입의 객체 v
 		int memberNumPerPage = 5; // 한 페이지 당 출력 개수 v
