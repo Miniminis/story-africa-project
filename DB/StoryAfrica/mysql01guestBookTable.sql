@@ -17,11 +17,11 @@ select * from guestbook_message;
 -- 테이블 리스트 출력을 위한 확인용 dummy 데이터 삽입 
 INSERT INTO GUESTBOOK_MESSAGE (gname, gpassword, gmessage) values ("minhee","1111","다녀가요~!111");
 INSERT INTO GUESTBOOK_MESSAGE (gname, gpassword, gmessage) values ("jb","2222","나는 잠이 더 필요해22");
-INSERT INTO GUESTBOOK_MESSAGE (gname, gpassword, MESSAGE) values ("yj","333","나는 잠이 더 필요해333");
-INSERT INTO GUESTBOOK_MESSAGE (gname, gpassword, MESSAGE) values ("gg","groomy","나는 잠이 더 필요해444");
-INSERT INTO GUESTBOOK_MESSAGE (gname, gpassword, MESSAGE) values ("55","55555","나는 잠이 더 필요해555");
-INSERT INTO GUESTBOOK_MESSAGE (gname, gpassword, MESSAGE) values ("66","666666","나는 잠이 더 필요해666666");
-INSERT INTO GUESTBOOK_MESSAGE (gname, gpassword, MESSAGE) values ("77","777777","나는 잠이 더 필요해777");
+INSERT INTO GUESTBOOK_MESSAGE (gname, gpassword, gmessage) values ("yj","333","나는 잠이 더 필요해333");
+INSERT INTO GUESTBOOK_MESSAGE (gname, gpassword, gmessage) values ("gg","groomy","나는 잠이 더 필요해444");
+INSERT INTO GUESTBOOK_MESSAGE (gname, gpassword, gmessage) values ("55","55555","나는 잠이 더 필요해555");
+INSERT INTO GUESTBOOK_MESSAGE (gname, gpassword, gmessage) values ("66","666666","나는 잠이 더 필요해666666");
+INSERT INTO GUESTBOOK_MESSAGE (gname, gpassword, gmessage) values ("77","777777","나는 잠이 더 필요해777");
 
 
 -- 테이블 리스트 3행씩 출력을 위한 쿼리문 작성 
