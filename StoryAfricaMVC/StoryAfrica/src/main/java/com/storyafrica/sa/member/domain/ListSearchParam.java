@@ -32,13 +32,4 @@ public class ListSearchParam {
 				+ "]";
 	}
 	
-	public String matchPeriod(String searchPeriod) {
-		
-		if(searchPeriod.equals("AllPeriod")) {
-			
-		}
-		
-		return searchPeriod;
-	}
-	
 }

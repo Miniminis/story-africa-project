@@ -10,10 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>회원 목록</title>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
 <link href="<c:url value='/static/default.css'/>" rel="stylesheet" type="text/css">
 <style>
 	.mb-auto {
@@ -130,7 +127,7 @@
 	function deleteMember(idx) {
 		
 		if(confirm('삭제 된 정보는 복구가 불가능합니다. 정말 삭제하시겠습니까? ')) {
-			location.href='<c:url value="/member/deleteProcess?memberIdx="/>'+idx;
+			location.href='<c:url value="deleteProcess/"/>'+idx; //href 경로 : 현재 위치에서 찾는다! - REST
 		}
 		
 	}
