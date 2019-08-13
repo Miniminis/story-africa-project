@@ -52,6 +52,8 @@
 		
 </script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
 <link href="<c:url value='/static/login.css'/>" rel="stylesheet" type="text/css">
 <style>
 	.form-signin input[type="password"] {

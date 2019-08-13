@@ -12,6 +12,8 @@
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/cover/">
+<link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
 <link href="<c:url value='/static/login.css'/>" rel="stylesheet" type="text/css">
 
 </head>

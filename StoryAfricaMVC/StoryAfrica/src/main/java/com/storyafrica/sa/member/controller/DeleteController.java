@@ -5,7 +5,6 @@ import java.sql.SQLException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -51,29 +50,5 @@ public class DeleteController {
 		
 		return "redirect:/member/memberlist";
 	}
-
-	@RequestMapping("/member/deleteProcess/{memberIdx}")
-	public String deleteProcessREST(@PathVariable("memberIdx") int memberIdx) {
-		
-		int resultCnt = 0;
-		
-		try {
-			resultCnt = deleteService.deleteProcess(memberIdx);
-			
-		} catch (InvalidPasswordException e) {
-			e.printStackTrace();
-		} catch (MemberNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} catch (WrongPasswordException e) {
-			e.printStackTrace();
-		}		
-		
-		//model.addAttribute("resultCnt", resultCnt);
-		
-		return "redirect:/member/memberlist";
-	}
-	
 
 }

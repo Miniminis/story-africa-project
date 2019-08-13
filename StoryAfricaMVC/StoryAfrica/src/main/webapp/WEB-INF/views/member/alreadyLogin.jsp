@@ -11,6 +11,8 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
 <link href="static/default.css" rel="stylesheet" type="text/css">
 <link href="static/login.css" rel="stylesheet" type="text/css">
 
