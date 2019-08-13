@@ -9,10 +9,12 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.dbcp2.BasicDataSource;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.storyafrica.sa.member.dao.MemberDao;
+import com.storyafrica.sa.member.dao.MemberSessionDao;
 import com.storyafrica.sa.member.domain.Member;
 import com.storyafrica.sa.member.domain.MemberRegist;
 
@@ -20,9 +22,14 @@ import com.storyafrica.sa.member.domain.MemberRegist;
 public class RegService implements MemberService {
 	
 	@Autowired
-	private MemberDao dao;
+	private SqlSessionTemplate sqltemplate;
+	
+	private MemberSessionDao memSessDao; //위에 붙이면 같이 autowired됨 !
+	
 	
 	public Map<String, Object> regist(MemberRegist memberRegist, HttpServletRequest req, Map<String, Object> memberMap) {
+		
+		memSessDao = sqltemplate.getMapper(MemberSessionDao.class);
 		
 		//form 으로부터 전달받은 정보 중 파일형식이 아닌 아이디, 비번, 이름을 먼저 객체에 저장 
 		Member member = memberRegist.toMember();
@@ -53,16 +60,16 @@ public class RegService implements MemberService {
 			}
 		}
 			
-		System.out.println("=====dir, newfiename : "+dir+"===="+newfileName+"=======");
+		System.out.println("REG-SERVICE DIR/NEWFILENAME: "+dir+"===="+newfileName+"=======");
 			
 		//아까 저장하지 못한 파일을 member 객체에 저장
 		member.setUserphoto(newfileName);
 
 		//member 객체 DB에 저장 
-		resultCnt = dao.insert(member);
+		resultCnt = memSessDao.insert(member);
 		
 		//저장된 DB의 member 정보를 기존의 member 객체에 덮어씌우기 
-		member = dao.selectMemberById(member.getUserid());
+		member = memSessDao.selectMemberById(member.getUserid());
 		System.out.println("==regservice"+member+"==regservice END");
 		
 		memberMap.put("resultCnt", resultCnt);
@@ -74,16 +81,18 @@ public class RegService implements MemberService {
 	
 	//중복아이디 체크 01
 	public char idChk(String id) {
-
-		char chk = dao.selectMemberById(id)==null ? 'Y' : 'N';
+		memSessDao = sqltemplate.getMapper(MemberSessionDao.class);
+		
+		char chk = memSessDao.selectMemberById(id)==null ? 'Y' : 'N';
 		
 		return chk;
 	}
 	
 	//중복아이디 체크 02
 	public String idChk2(String id) {
+		memSessDao = sqltemplate.getMapper(MemberSessionDao.class);
 
-		String chk = dao.selectMemberById(id)==null?"Y":"N";
+		String chk = memSessDao.selectMemberById(id)==null?"Y":"N";
 		
 		return chk;
 	}

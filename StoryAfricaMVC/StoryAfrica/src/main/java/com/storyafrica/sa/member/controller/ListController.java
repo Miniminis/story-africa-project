@@ -52,6 +52,7 @@ public class ListController {
 				&& !keyword.isEmpty()
 				&& !searchPeriod.isEmpty()
 				) {
+			
 			sparam = new ListSearchParam();
 			sparam.setSearchType(searchType);
 			sparam.setKeyword(keyword);

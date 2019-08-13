@@ -1,18 +1,10 @@
 package com.storyafrica.sa.member.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.storyafrica.sa.member.domain.ListSearchParam;
@@ -22,7 +14,7 @@ import com.storyafrica.sa.member.domain.RowMemberMapper;
 @Repository("dao")
 public class MemberDao {
 	
-	@Autowired
+	//@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
 	//회원가입 

@@ -1,14 +1,14 @@
 package com.storyafrica.sa.member.service;
 
-import java.sql.Connection;
-import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-import org.apache.commons.dbcp2.BasicDataSource;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.storyafrica.sa.member.dao.MemberDao;
+import com.storyafrica.sa.member.dao.MemberSessionDao;
 import com.storyafrica.sa.member.domain.ListSearchParam;
 import com.storyafrica.sa.member.domain.Member;
 import com.storyafrica.sa.member.domain.MemberList;
@@ -17,9 +17,15 @@ import com.storyafrica.sa.member.domain.MemberList;
 public class MemberListService implements MemberService{
 	
 	@Autowired
-	private MemberDao dao;
+	private SqlSessionTemplate sqlTemplate;
+	
+	private MemberSessionDao memDao;
+	
 	
 	public MemberList getMemberList(int page, ListSearchParam sparam) {
+		
+		memDao = sqlTemplate.getMapper(MemberSessionDao.class);
+		
 		//반환 정보 
 		MemberList memberlistview = new MemberList();
 		
@@ -33,14 +39,20 @@ public class MemberListService implements MemberService{
 		int curPageNum = page; //현제 페이지 번호  v
 			
 		//전체 멤버 수 
-		totalMemNum = dao.selectCnt(sparam);
+		totalMemNum = memDao.selectCnt(sparam);
 			
 		//각 페이지의 첫번째 row idx 구하기 
 		index = memberNumPerPage*(curPageNum-1);
 		startRow = totalMemNum - index;
 			
 		//DB에 있는 모든 회원 정보를 페이지당 5개씩만 표현 
-		mlist = dao.selectList(index, memberNumPerPage, sparam); 
+		Map<String, Object> paraMap = new HashMap<String, Object>();
+		
+		paraMap.put("index", index);
+		paraMap.put("memberNumPerPage", memberNumPerPage);
+		paraMap.put("sparam", sparam);
+		
+		mlist = memDao.selectList(paraMap); 
 		
 		totalPageNum = totalMemNum/memberNumPerPage;
 		

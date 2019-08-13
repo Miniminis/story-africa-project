@@ -8,10 +8,12 @@ import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.dbcp2.BasicDataSource;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.storyafrica.sa.member.dao.MemberDao;
+import com.storyafrica.sa.member.dao.MemberSessionDao;
 import com.storyafrica.sa.member.domain.EditedMember;
 import com.storyafrica.sa.member.domain.Member;
 
@@ -19,17 +21,23 @@ import com.storyafrica.sa.member.domain.Member;
 public class EditService {
 
 	@Autowired
-	MemberDao dao;
+	private SqlSessionTemplate sqlTemplate;
+	
+	private MemberSessionDao memDao;
 	
 	public Member getMember(int memberIdx) {
 		
-		Member member = dao.selectMemberByIdx(memberIdx);		
+		memDao = sqlTemplate.getMapper(MemberSessionDao.class);
+		
+		Member member = memDao.selectMemberByIdx(memberIdx);		
 
 		return member;	
 	}
 	
 	public int editMember(EditedMember editedMember,
 							HttpServletRequest req) {
+		
+		memDao = sqlTemplate.getMapper(MemberSessionDao.class);
 		
 		System.out.println("==editServiceParam"+editedMember+"===");
 
@@ -73,7 +81,7 @@ public class EditService {
 		
 		System.out.println("====editservice==="+member+"=======");
 
-		rscnt = dao.edit(member);
+		rscnt = memDao.edit(member);
 		
 		return rscnt;
 	}
