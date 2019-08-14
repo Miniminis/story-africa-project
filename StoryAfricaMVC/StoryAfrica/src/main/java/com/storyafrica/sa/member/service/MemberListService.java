@@ -79,4 +79,14 @@ public class MemberListService implements MemberService{
 		return memberlistview;
 	}
 
+	
+	//REST API 
+	public List<Member> getMemberListRest() {
+		
+		memDao = sqlTemplate.getMapper(MemberSessionDao.class);
+		
+		List<Member> memlist = memDao.selectListNoPage();
+		
+		return memlist;
+	}
 }

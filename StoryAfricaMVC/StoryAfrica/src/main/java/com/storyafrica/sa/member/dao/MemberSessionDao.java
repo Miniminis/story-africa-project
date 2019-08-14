@@ -18,5 +18,6 @@ public interface MemberSessionDao {
 	public Member selectMemberByIdx(int memberIdx);
 	public int delete(int memberIdx);
 	public int edit(Member member);
+	public List<Member> selectListNoPage();
 
 }

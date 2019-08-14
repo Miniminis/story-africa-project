@@ -37,7 +37,7 @@ public class RegController {
 		//회원가입 처리 페이지로 보내줄 resultcnt, member 객체 Map 에 담아 보냄
 		Map<String, Object> memberMap = new HashMap<String, Object>();
 		
-		memberMap = regService.regist(memberRegist, req, memberMap);
+		memberMap = regService.regist(memberRegist, req);
 		
 		System.out.println("===controller"+memberRegist.toString()+"===controller END");
 		

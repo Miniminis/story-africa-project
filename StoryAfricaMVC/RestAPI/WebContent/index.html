@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<style>
+	body {
+		text-align: center;
+	}
+	table {
+		margin: 0 auto;
+	}
+</style>
+</head>
+<body>
+	<h1>REST-API 회원리스트</h1>
+	<hr>
+	<table id="memberlist"></table>
+    
+    <h1>REST-API 회원가입</h1>
+    <hr>
+    <form id="regform" method="post">
+        <table>
+            <tr>
+                <td>아이디</td>
+                <td><input type="text" name="userid" id="userid"></td>
+            </tr>
+            <tr>
+                <td>비밀번호</td>
+                <td><input type="password" name="userpw" id="userpw"></td>
+            </tr>
+            <tr>
+                <td>이름</td>
+                <td><input type="text" name="username" id="username"></td>
+            </tr>            
+        </table>
+        <input type="submit" value="가입하기">
+    </form>
+
+<script>
+	$(document).ready(function(){
+		
+		selectMemberList();
+		
+		//회원등록
+	    $('#regform').submit(function(){
+	        
+	        //var reginfo = $('#regform').serialize();
+	        /* var reginfo ={
+	        		userid : $('#userid').val(),
+	        		userpw : $('#userpw').val(),
+	        		username : $('#username').val()
+	        } */
+	        
+	        $.ajax({
+	            url: 'http://localhost:8080/sa/api/members',
+	            type: 'POST',
+	            data: JSON.stringify({
+	        		userid : $('#userid').val(),
+	        		userpw : $('#userpw').val(),
+	        		username : $('#username').val()
+	        }),
+	            contentType: 'application/json; charset=utf-8;',
+	            dataType: 'json',
+	            success : function(data){
+	            	if(data>0) {
+	            		alert('환영쓰><');
+	            	} else {
+	            		alert('글렀어요.... 딴데 가여...');
+	            	}
+	           }
+	        });	      
+	        /* return false; */
+	    });
+	});
+	
+	//회원리스트
+	function selectMemberList() {
+		$.ajax({
+			url: 'http://localhost:8080/sa/api/members',
+			type: 'GET',
+			success : function(data){ 		//data로 들어오는 모든 자료는 js 객체 형태이다 
+				//alert(JSON.stringify(data));
+	            
+	            var html ='';
+	            
+	            for(var i=0; i<data.length; i++) {
+	                html += '<tr>';
+	                html += '<td>idx  '+data[i].idx+'</td>';
+	                html += '<td>userid  '+data[i].userid+'</td>';
+	                html += '<td>username  '+data[i].username+'</td>';
+	                html += '<td>userphoto  '+data[i].userphoto+'</td>';
+	                html += '<td><a onclick="deleteMember('+data[i].idx+')">삭제하기</a></td>';
+	                html += '</tr>';
+	            }
+	            
+	            $('#memberlist').html(html);
+			}
+		});
+	}
+	 
+	
+	//회원삭제
+    function deleteMember(idx) {
+    	if(confirm('회원삭제 후 복구가 불가합니다. 정말 삭제하시겠습니까?')) {
+    		$.ajax({
+    			url: 'http://localhost:8080/sa/api/members/'+idx,
+    			type: 'DELETE',
+    			success: function(data) {
+    				if(data>0) {
+    					alert('삭제 성공해브러쓰~!');
+    					selectMemberList();
+    				} else {
+    					alert('삭제 안돼버렀는디 ㅠㅠㅠㅠ 우째쓰까잉');
+    				}
+    				
+    			}
+    		})
+    	}
+    }  
+</script>
+</body>
+</html>

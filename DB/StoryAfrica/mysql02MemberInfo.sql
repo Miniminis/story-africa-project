@@ -62,6 +62,6 @@ select * from memberinfo;
 
 update memberinfo set userpw="0", username="삐리삐리", userphoto="noImg.png" where idx="2";
 
-
+select * from memberinfo order by idx desc;
 
 
