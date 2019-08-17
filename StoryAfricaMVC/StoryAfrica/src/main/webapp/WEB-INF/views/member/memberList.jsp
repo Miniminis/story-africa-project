@@ -73,7 +73,8 @@
 				    </tr>
 				   </c:forEach>
 				   <!-- 회원리스트 반복의 끝 -->
-			  </c:if>			   
+			  </c:if>	
+			  		   
 			  </tbody>
 			</table>
 			

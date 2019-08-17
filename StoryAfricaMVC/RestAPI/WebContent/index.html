@@ -54,13 +54,13 @@
 	        } */
 	        
 	        $.ajax({
-	            url: 'http://localhost:8080/sa/api/members',
+	            url: 'http://localhost:8080/sa/api/users',
 	            type: 'POST',
 	            data: JSON.stringify({
 	        		userid : $('#userid').val(),
 	        		userpw : $('#userpw').val(),
 	        		username : $('#username').val()
-	        }),
+	        	}),
 	            contentType: 'application/json; charset=utf-8;',
 	            dataType: 'json',
 	            success : function(data){
@@ -78,7 +78,7 @@
 	//회원리스트
 	function selectMemberList() {
 		$.ajax({
-			url: 'http://localhost:8080/sa/api/members',
+			url: 'http://localhost:8080/sa/api/users',
 			type: 'GET',
 			success : function(data){ 		//data로 들어오는 모든 자료는 js 객체 형태이다 
 				//alert(JSON.stringify(data));
@@ -105,7 +105,7 @@
     function deleteMember(idx) {
     	if(confirm('회원삭제 후 복구가 불가합니다. 정말 삭제하시겠습니까?')) {
     		$.ajax({
-    			url: 'http://localhost:8080/sa/api/members/'+idx,
+    			url: 'http://localhost:8080/sa/api/users/'+idx,
     			type: 'DELETE',
     			success: function(data) {
     				if(data>0) {

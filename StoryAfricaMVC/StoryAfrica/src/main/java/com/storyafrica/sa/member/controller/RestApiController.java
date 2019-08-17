@@ -28,15 +28,15 @@ import com.storyafrica.sa.member.service.MemberListService;
 import com.storyafrica.sa.member.service.RegService;
 
 /*uri
- * api/members - GET : 모든 리스트, 페이징 처리됨
- * api/members/{id} - GET: 회원 1명 select
- * api/members - POST : 회원 1명 insert
- * api/members/{id} - PUT : 회원 1명 정보 update
- * api/members/{id} - DELETE : 회원 1명 정보 delete 
+ * api/users - GET : 모든 리스트, 페이징 처리됨
+ * api/users/{id} - GET: 회원 1명 select
+ * api/users - POST : 회원 1명 insert
+ * api/users/{id} - PUT : 회원 1명 정보 update
+ * api/users/{id} - DELETE : 회원 1명 정보 delete 
  * */
 
 @Controller 
-@RequestMapping("/api/members")
+@RequestMapping("/api/users")
 public class RestApiController {
 	
 	@Autowired

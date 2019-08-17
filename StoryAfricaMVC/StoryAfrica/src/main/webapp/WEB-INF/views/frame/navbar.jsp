@@ -5,7 +5,6 @@
 
 <div id="navbar" class="nav nav-masthead justify-content-center">
 	<a class="nav-link active" href="<c:url value='/'/>">홈</a>
-	<a class="nav-link" href="<c:url value='/'/>">경험</a>
 	<a class="nav-link" href="<c:url value='/'/>">여행</a>
 	<a class="nav-link" href="<c:url value='/'/>">사업</a>
 	<a class="nav-link" href="<c:url value='/'/>">봉사</a>

@@ -25,7 +25,7 @@ public class RegService implements MemberService {
 	@Autowired
 	private SqlSessionTemplate sqltemplate;
 	
-	private MemberSessionDao memSessDao; //위에 붙이면 같이 autowired됨 !
+	private MemberSessionDao memSessDao; 
 	
 	
 	public Map<String, Object> regist(MemberRegist memberRegist, HttpServletRequest req) {
