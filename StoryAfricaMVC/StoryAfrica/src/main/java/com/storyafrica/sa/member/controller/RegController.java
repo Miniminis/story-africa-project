@@ -20,12 +20,12 @@ public class RegController {
 	@Autowired
 	private RegService regService;
 	
-	//1) 회원가입 폼 
+	/*//1) 회원가입 폼 
 	@RequestMapping(value = "/member/regform", method = RequestMethod.GET)
 	public String getRegForm() {
 		
 		return "/member/memberRegForm";
-	}
+	}*/
 	
 	//2) 회원가입처리 
 	@RequestMapping(value = "/member/regMember", method = RequestMethod.POST)

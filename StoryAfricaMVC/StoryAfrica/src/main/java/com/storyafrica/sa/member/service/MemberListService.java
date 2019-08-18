@@ -31,7 +31,7 @@ public class MemberListService implements MemberService{
 		
 		//MemberList 객체 출력을 위해 필요한 데이터들 
 		List<Member> mlist = null;//리스트 타입의 객체 v
-		int memberNumPerPage = 5; // 한 페이지 당 출력 개수 v
+		int memberNumPerPage = 4; // 한 페이지 당 출력 개수 v
 		int totalPageNum = 0; //전체 페이지 수 
 		int totalMemNum = 0; //전체 회원 수 v
 		int startRow = 0;  //뷰 페이지에서 보이는 리스트의 시작점  

@@ -1,113 +1,145 @@
-@charset "UTF-8";
 /*
- * Globals
- */
-
-/* Links */
-a,
-a:focus,
-a:hover {
-  color: #fff;
+COMMON SETTING
+*/
+html, body {
+    margin: 0;
+    padding: 0;
 }
-
-/* Custom default button */
-.btn-secondary,
-.btn-secondary:focus {
-  color: #FAD02C;
-  text-shadow: none; /* Prevent inheritance from `body` */
-  background-color: transparent;
-  border: .05rem solid #FAD02C;
-}
-.btn-secondary:hover {
-	color: #333;
-	text-shadow: none; /* Prevent inheritance from `body` */
-	background-color: #FAD02C;
-	border: .05rem solid #FAD02C;
-}
-
 /*
- * Base structure
- */
-
-html,
-body {
-  height: 100%;
-  background-color: #333;
-}
-
-body {
-  display: -ms-flexbox;
-  display: flex;
-  color: #fff;
-  text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
-  /* box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5); */
-}
-
-.cover-container {
-  max-width: 70em;
-}
-
-.mb-auto {
-	margin-bottom: auto!important;
-}
-
-/*
- * Header
- */
-.masthead {
-  margin-bottom: 2rem;
-}
-
-.masthead-brand {
-  margin-bottom: 0;
-}
-
-.nav-masthead .nav-link {
-  padding: .25rem 0;
-  font-weight: 700;
-  color: rgba(255, 255, 2555, .5);
-  background-color: transparent;
-  border-bottom: .25rem solid transparent;
-}
-
-.nav-masthead .nav-link:hover,
-.nav-masthead .nav-link:focus {
-  border-bottom-color: rgba(255, 255, 255, .25);
-}
-
-.nav-masthead .nav-link + .nav-link {
-  margin-left: 1rem;
-}
-
-.nav-masthead .active {
-  color: #fff;
-  border-bottom-color: #fff;
-}
-
-@media (min-width: 48em) {
-  .masthead-brand {
-    float: left;
-  }
-  .nav-masthead {
-    float: right;
-  }
-}
-
-/*
- * Cover
- */
-.cover {
-  padding: 0 1.5rem;
-}
-.cover .btn-lg {
-  padding: .75rem 1.25rem;
-  font-weight: 700;
-}
+BUTTON
+*/
 
 
 /*
- * Footer
- */
-.mastfoot {
-  color: rgba(255, 255, 255, .5);
+a - Link 
+*/
+
+
+
+
+/*
+INDEX PAGE
+*/
+
+/*index01*/
+.jumbotron {
+    margin-bottom: 0;
+    height: 100vh;
+    padding: 250px 0;
 }
+
+.index_section {
+    background-color: transparent;
+    background-image: url("https://entertainme.net/wp-content/uploads/2017/11/African-culture.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*  index 02  */
+.card_img_h {
+    height: 200px;
+}
+
+.mr_tobo {
+    margin: 50px 0;
+}
+
+/* index 03 */
+.index_carousel_h {
+    height: 400px;
+}
+
+
+/* 
+REG MEMBER 
+ */
+#idchk {
+	display: none;
+} 
+ 
+ 
+
+/*
+MY PAGE
+*/
+.p-top-my {
+    padding: 30px 0;
+}
+
+.my-center {
+    margin: 0 auto;
+}
+
+.h-myInfo {
+    height: 100vh;
+    margin-bottom: 0;
+}
+
+/*
+EDITOR LIST PAGE 
+*/
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+}
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-md-3 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: 400;
+}
+.marketing .col-lg-4 p {
+  margin-right: .75rem;
+  margin-left: .75rem;
+}
+
+.p-top {
+    padding: 100px 0;
+}
+
+/*
+NOW HERE PAGE  
+*/
+.mr_nowForm {
+    margin: 100px 0;
+}
+
+.mr_line {
+    margin: 20px 0;
+}
+
+.mr_nowList {
+    margin: 50px 0;
+}
+
+/*
+TRAVEL PAGE 
+*/
+/*.mr_nowForm{}*/
+
+
+/*
+BUSINESS PAGE 
+*/
+
+
+/*
+VOLUNTARY WORK PAGE  
+*/
+
+
+
+
