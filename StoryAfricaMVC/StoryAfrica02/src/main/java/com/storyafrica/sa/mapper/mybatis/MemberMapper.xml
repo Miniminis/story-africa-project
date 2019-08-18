@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.storyafrica.sa.member.dao.MemberSessionDao">
+	
+	<!-- 1. 회원 insert - member -->
+	<insert id="insert" parameterType="com.storyafrica.sa.member.domain.Member">
+		insert into memberinfo values(null, #{userid}, #{userpw}, #{username}, #{userphoto}, now())
+	</insert>
+	
+	<!-- 2. 회원 1명 id로 선택  - userid-->
+	<select id="selectMemberById" parameterType="String" 
+		resultType="com.storyafrica.sa.member.domain.Member">
+		select * from memberinfo where userid=#{userid}
+	</select>
+	
+	<!-- 3. 전체 회원 수 count - ListSearchParam -->
+	<select id="selectCnt" parameterType="com.storyafrica.sa.member.domain.ListSearchParam" 
+		resultType="int">
+		select count(*) from memberinfo 
+		
+		<where> <!-- 반드시 생성되는 것이 아니고 where 절 내부의 태그가 동작하여 결과물이 생성된다면 where를 생성! 
+						- 결과물이 없다면 그냥 생성 안됨!  -->
+			<if test="searchType != null">
+				<choose>
+					<when test="searchType== 'idPlusName'">
+						(userid like concat('%', #{keyword}, '%') or username like concat('%', #{keyword}, '%'))
+					</when>
+					<when test="searchType== 'id'">
+						userid like concat('%', #{keyword}, '%')
+					</when>
+					<when test="searchType== 'name'">
+						username like concat('%', #{keyword}, '%')
+					</when>
+				</choose>
+			 </if>
+			 
+			 <if test="searchPeriod != null">
+			 	<choose>
+			 		<when test="searchPeriod=='AllPeriod'">
+			 			<![CDATA[and regdate < now()]]>
+			 		</when>
+			 		<otherwise>
+			 			and regdate between date_add(now(), interval -1 ${searchPeriod}) and now()
+			 		</otherwise>
+			 	</choose>
+			 </if>		 
+		</where>
+	</select>
+	
+	<!-- 4. 전체 리스트 출력 -  index, memberNumPerPage ListSearchParam-->
+	<select id="selectList" parameterType="map" 
+		resultType="com.storyafrica.sa.member.domain.Member">
+		select * from memberinfo 
+		
+		<where>
+			<if test="sparam != null and sparam.searchType != null">
+				<choose>
+					<when test="sparam.searchType== 'idPlusName'">
+						(userid like concat('%', #{sparam.keyword}, '%') or username like concat('%', #{sparam.keyword}, '%'))
+					</when>
+					<when test="sparam.searchType== 'id'">
+						userid like concat('%', #{sparam.keyword}, '%')
+					</when>
+					<when test="sparam.searchType== 'name'">
+						username like concat('%', #{sparam.keyword}, '%')
+					</when>
+				</choose>
+			 </if>
+			 			 
+			 <if test="sparam != null and sparam.searchPeriod != null">
+			 	<choose>
+			 		<when test="sparam.searchPeriod=='AllPeriod'">
+			 			<![CDATA[ and regdate < now()]]>
+			 		</when>
+			 		<otherwise>
+			 			and regdate between date_add(now(), interval -1 ${sparam.searchPeriod}) and now()
+			 		</otherwise>
+			 	</choose>
+			 </if>
+
+		</where>
+		
+		order by idx desc limit #{index}, #{memberNumPerPage}
+		
+	</select>
+	
+	<!-- 5. 회원 1명 idx 선택 - idx -->
+	<select id="selectMemberByIdx" parameterType="int" 
+		resultType="com.storyafrica.sa.member.domain.Member">
+		select * from memberinfo where idx=#{memberIdx}
+	</select>
+	
+	<!-- 6. 회원 삭제 - idx -->
+	<delete id="delete" parameterType="int">
+		delete from memberinfo where idx=#{memberIdx}
+	</delete>
+	
+	<!-- 7. 회원 정보 수정 - Member  -->
+	<update id="edit" parameterType="com.storyafrica.sa.member.domain.Member">
+		update memberinfo set userpw=#{userpw}, username=#{username}, userphoto=#{userphoto} where idx=#{idx}
+	</update>
+	
+	<!-- 8. 페이징 없이 전체 리스트 출력 : REST -->
+	<select id="selectListNoPage" resultType="com.storyafrica.sa.member.domain.Member">
+		select * from memberinfo order by idx desc;
+	</select>
+	
+</mapper>
