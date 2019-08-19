@@ -37,7 +37,7 @@ import com.storyafrica.sa.member.service.RegService;
 
 @Controller 
 @RequestMapping("/api/users")
-public class RestApiController {
+public class RestApiController01 {
 	
 	@Autowired
 	private MemberListService memberListService;

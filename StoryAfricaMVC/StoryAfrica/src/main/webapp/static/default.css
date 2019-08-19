@@ -66,6 +66,10 @@ MY PAGE
     padding: 30px 0;
 }
 
+.p-top-my02 {
+    padding: 100px 0;
+}
+
 .my-center {
     margin: 0 auto;
 }
@@ -73,6 +77,12 @@ MY PAGE
 .h-myInfo {
     height: 100vh;
     margin-bottom: 0;
+}
+
+.listImg {
+	width: 150px; 
+	height: 150px;
+	border-radius: 100px;
 }
 
 /*
@@ -109,6 +119,20 @@ EDITOR LIST PAGE
 .p-top {
     padding: 100px 0;
 }
+
+#listImg {
+	width: 150px; 
+	height: 150px;
+	border-radius: 100px;
+}
+.form-inline {
+	display: block;
+	margin: 10px;
+}
+.noSearchResult {
+	margin: 50px 0;
+}
+
 
 /*
 NOW HERE PAGE  

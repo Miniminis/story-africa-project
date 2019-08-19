@@ -29,7 +29,7 @@
         <a class="nav-link" href="<c:url value='/member/memberlist'/>">에디터 탐색</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<c:url value='/'/>">지금, 여기!</a>
+        <a class="nav-link" href="<c:url value='/guestbook'/>">지금, 여기!</a>
       </li>
       <li class="nav-item">
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">커밍순</a>
@@ -79,72 +79,56 @@
         </div>
     </li>
     
+    <c:if test="${sessionScope.LoginInfo == null}">
+    	<!-- 로그인 DROP DOWN-->
+	    <li class="nav-item dropdown">
+	        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	          로그인
+	        </a>
+	        <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown">
+	          <form action="member/loginProcess" method="post" class="px-4 py-3">
+	            <div class="form-group">
+	              <label for="inputEmail">아이디</label>
+	              <input type="text" class="form-control" id="inputEmail" name="userid"  placeholder="아이디" required autofocus>
+	            </div>
+	            <div class="form-group">
+	              <label for="inputPassword">비밀번호</label>
+	              <input type="password" class="form-control" id="inputPassword" name="userpw" placeholder="비밀번호" required>
+	            </div>
+	            <div class="form-group">
+	              <div class="form-check">
+	                <input type="checkbox" class="form-check-input" id="rememberMe" name="autologin" value="saveID">
+	                <label class="form-check-label" for="rememberMe">
+	                  자동로그인
+	                </label>
+	              </div>
+	            </div>
+	            <button type="submit" class="btn btn-primary">로그인</button>
+	          </form>
+	          <div class="dropdown-divider"></div>
+	          <a class="dropdown-item" href="#">너, 나의 동료가 되어라!</a>
+	          <a class="dropdown-item" href="#">비밀번호를 잊어버리셨어요?</a>
+	        </div>
+	    </li>
+    </c:if>
     
-    <!-- 로그인 DROP DOWN-->
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          로그인
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown">
-          <form action="member/loginProcess" method="post" class="px-4 py-3">
-            <div class="form-group">
-              <label for="inputEmail">아이디</label>
-              <input type="text" class="form-control" id="inputEmail" name="userid"  placeholder="아이디" required autofocus>
-            </div>
-            <div class="form-group">
-              <label for="inputPassword">비밀번호</label>
-              <input type="password" class="form-control" id="inputPassword" name="userpw" placeholder="비밀번호" required>
-            </div>
-            <div class="form-group">
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="rememberMe" name="autologin" value="saveID">
-                <label class="form-check-label" for="rememberMe">
-                  자동로그인
-                </label>
-              </div>
-            </div>
-            <button type="submit" class="btn btn-primary">로그인</button>
-          </form>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">너, 나의 동료가 되어라!</a>
-          <a class="dropdown-item" href="#">비밀번호를 잊어버리셨어요?</a>
-        </div>
-    </li>
+    <c:if test="${sessionScope.LoginInfo != null }">
+    	<!-- 마이페이지 DROP DOWN-->
+	    <li class="nav-item dropdown">
+	        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	          마이페이지
+	        </a>
+	        <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown">
+	          <a class="dropdown-item" href="<c:url value='/member/mypage'/>">내정보보기</a>
+	          <div class="dropdown-divider"></div>
+	          <a class="dropdown-item" href="<c:url value='/member/logout'/>">로그아웃</a>
+	        </div>
+	      </li>
+    </c:if>
     
-    <!-- 마이페이지 DROP DOWN-->
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          마이페이지
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="<c:url value='/member/mypage'/>">내정보보기</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="<c:url value='/member/logout'/>">로그아웃</a>
-        </div>
-      </li>
     </ul>
   </div>
 </nav>
-
-<%-- <div id="navbar" class="nav nav-masthead justify-content-center">
-	<a class="nav-link active" href="<c:url value='/'/>">홈</a>
-	<a class="nav-link" href="<c:url value='/'/>">여행</a>
-	<a class="nav-link" href="<c:url value='/'/>">사업</a>
-	<a class="nav-link" href="<c:url value='/'/>">봉사</a>
-	<a class="nav-link" href="<c:url value='/member/memberlist'/>">회원리스트</a>
-	<a class="nav-link" href="<c:url value='/member/regform'/>">회원가입</a>
-	<a class="dropdown-toggle nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" 
-		aria-haspopup="true" aria-expanded="false">
-      	로그인
-    </a>
-	    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-	      <a class="dropdown-item" href="<c:url value='/member/loginform'/>">로그인</a>
-	      <a class="dropdown-item" href="<c:url value='/member/mypage'/>">내정보보기</a>      
-	      <div class="dropdown-divider"></div>
-	      <a class="dropdown-item" href="<c:url value='/member/logout'/>">로그아웃</a>
-	    </div>		  
-</div> --%>
-
 
 <!-- 네비게이션 바를 include 를 통해서 불러올때에는 
 절대경로를 사용해야 각각의 페이지의 서로 다른 위치에서도 올바른 주소로 

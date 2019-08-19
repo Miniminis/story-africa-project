@@ -34,7 +34,7 @@ import com.storyafrica.sa.member.service.RegService;
 
 @RestController //@ResponseBody 생략 : 뷰페이지 구성하지 않고 데이터만 반환 
 @RequestMapping("/rest/users")
-public class RestApiContoller02 {
+public class RestApiController02 {
 	
 	@Autowired
 	private MemberListService memberListService;

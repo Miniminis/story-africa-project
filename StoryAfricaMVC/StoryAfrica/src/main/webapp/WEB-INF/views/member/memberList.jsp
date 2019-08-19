@@ -12,21 +12,7 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link href="<c:url value='/static/default.css'/>" rel="stylesheet" type="text/css">
-<style>
-	
-	#listImg {
-		width: 150px; 
-		height: 150px;
-		border-radius: 100px;
-	}
-	.form-inline {
-		display: block;
-		margin: 10px;
-	}
-	.noSearchResult {
-		margin: 50px 0;
-	}
-</style>
+<style></style>
 </head>
 <body>	
 	<!-- header start -->
