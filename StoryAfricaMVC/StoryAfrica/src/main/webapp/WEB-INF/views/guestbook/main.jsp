@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,32 +10,16 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<style>
-	html, body {
-		height: 100%;
-		margin: 0;
-	}
-	body {
-		margin: 50px 200px 0 200px;
-		text-align: center;
-	}
-	
-	#writeArea {
-		width: 100%;
-		padding: 0px 200px;
-	}
-	
-	.paging {
-		cursor: pointer; 
-	}
-	
-	.mr-10 {
-		margin: 10px 0;
-	}
-</style>
+<script src="<c:url value='static/guestbook.js' />" text="text/javascript"></script>
+<link rel="stylesheet" href="<c:url value='static/guestbook.css'/>" type="text/css">
 </head>
 <body>
-	<div id="writeArea">
+	<!-- header start -->
+	<%@ include file="/WEB-INF/views/frame/navbar.jsp"%>
+	<!-- header end -->
+
+	<!-- guestbook writeform  -->
+	<div id="writeArea" class="mr-top">
 		<h2>LEAVE YOUR MESSAGE!</h2>
 		<hr>
 		
@@ -62,8 +49,10 @@
 		<hr>
 	</div>
 	
+	<!-- guestbook list  -->
 	<div id="list" class="row"><!-- ajax - DB에 저장된 메시지 리스트 출력 --></div>
 	
+	<!-- guestbook paging -->
 	<p id="paging"><!-- ajax 통해서 paging 처리 --></p>	
 	
 	<!-- Modal -->
@@ -96,5 +85,9 @@
 	    
 	  </div>
 	</div>
+	
+	<!-- footer start  -->
+	<%@ include file="/WEB-INF/views/frame/footer.jsp"%>
+	<!-- footer end -->
 </body>
 </html>

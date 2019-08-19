@@ -171,14 +171,3 @@
 	</div>
 </body>
 </html>
-
-<!-- content start -->
-<!-- <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-<div id="content" role="main" class="inner cover">
-	<h3 class="cover-heading">당신의 아프리카 이야기를 들려주세요</h3>
-	<p class="lead">contents HERE...</p>
-	<p class="lead">
-		<input type="button" value="더 알아보기" class="btn btn-lg btn-secondary"/>
-	<p>
-</div>	 -->
-<!-- content end -->
