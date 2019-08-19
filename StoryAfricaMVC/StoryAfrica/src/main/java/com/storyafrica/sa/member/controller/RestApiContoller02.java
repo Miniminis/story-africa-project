@@ -50,7 +50,7 @@ public class RestApiContoller02 {
 	
 	//회원리스트
 	@GetMapping()
-	@CrossOrigin
+	//@CrossOrigin
 	public ResponseEntity<List<Member>> getMemList() {
 		
 		List<Member> memList = memberListService.getMemberListRest();
