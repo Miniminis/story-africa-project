@@ -65,7 +65,7 @@ public class EditedMember {
 	@Override
 	public String toString() {
 		return "EditedMember [idx=" + idx + ", userid=" + userid + ", userpw=" + userpw + ", username=" + username
-				+ ", userphoto=" + userphoto + ", oldPhoto=" + oldPhoto + "]";
+				+ ", oldPhoto=" + oldPhoto + "]";
 	}
 	
 	

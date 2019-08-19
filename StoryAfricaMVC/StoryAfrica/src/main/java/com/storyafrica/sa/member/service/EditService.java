@@ -39,12 +39,12 @@ public class EditService {
 		
 		memDao = sqlTemplate.getMapper(MemberSessionDao.class);
 		
-		System.out.println("==editServiceParam"+editedMember+"===");
+		System.out.println("e2   "+editedMember);
 
 		int rscnt = 0;
 		Member member = editedMember.toMember(); //남은 변수 파일 2개
 		
-		System.out.println("==editServiceParam2 "+member+"===");
+		System.out.println("e3  "+member);
 		
 		String path = "/uploadedfile/userphoto";
 		String dir = req.getSession().getServletContext().getRealPath(path);
@@ -79,9 +79,11 @@ public class EditService {
 			member.setUserphoto(editedMember.getOldPhoto());
 		}
 		
-		System.out.println("====editservice==="+member+"=======");
+		System.out.println("e4   "+member+"=======");
 
 		rscnt = memDao.edit(member);
+		
+		System.out.println("e5   "+rscnt);
 		
 		return rscnt;
 	}

@@ -56,6 +56,8 @@ public class RestApiController {
 	 * from origin 'file://' has been blocked by CORS policy: No
 	 * 'Access-Control-Allow-Origin' header is present on the requested resource.
 	 */
+	
+	//회원리스트
 	@CrossOrigin
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
@@ -65,6 +67,8 @@ public class RestApiController {
 		
 	}
 	
+	
+	//회원등록
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseBody
 	@CrossOrigin
@@ -90,6 +94,7 @@ public class RestApiController {
 		return resultcnt;
 	}
 	
+	//회원삭제 
 	@RequestMapping(value = "/{id}",method = RequestMethod.DELETE)
 	@ResponseBody
 	@CrossOrigin
