@@ -85,16 +85,21 @@ public class LoginController {
 	}
 	
 	//마이페이지
-	@RequestMapping("/member/mypage")
+	@RequestMapping("/member/mypage/filteredMypage")
 	public String showMyPage(HttpSession session) {
 		
 		String viewpage = "/member/myPage";
 		
-		if(session ==null || session.getAttribute("LoginInfo") == null) {
+		/*if(session ==null || session.getAttribute("LoginInfo") == null) {
 			viewpage = "/member/loginRequired"; //로그인 필요 팝업창
-		}
+		}*/
 		
 		return viewpage;
+	}
+	//로그인 필요 페이지
+	@RequestMapping("/member/loginRequired")
+	public String showLoginRequeiredPage() {
+		return "/member/loginRequired";
 	}
 
 }

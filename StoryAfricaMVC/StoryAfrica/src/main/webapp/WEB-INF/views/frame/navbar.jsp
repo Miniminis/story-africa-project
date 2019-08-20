@@ -110,16 +110,16 @@
 	          <a class="dropdown-item" href="#">비밀번호를 잊어버리셨어요?</a>
 	        </div>
 	    </li>
-    </c:if>
+    </c:if> 
     
-    <c:if test="${sessionScope.LoginInfo != null }">
+   <c:if test="${sessionScope.LoginInfo != null }">
     	<!-- 마이페이지 DROP DOWN-->
 	    <li class="nav-item dropdown">
 	        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 	          마이페이지
 	        </a>
 	        <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown">
-	          <a class="dropdown-item" href="<c:url value='/member/mypage'/>">내정보보기</a>
+	          <a class="dropdown-item" href="<c:url value='/member/mypage/filteredMypage'/>">내정보보기</a>
 	          <div class="dropdown-divider"></div>
 	          <a class="dropdown-item" href="<c:url value='/member/logout'/>">로그아웃</a>
 	        </div>

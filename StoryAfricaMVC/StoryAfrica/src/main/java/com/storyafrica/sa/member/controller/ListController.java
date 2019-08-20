@@ -36,10 +36,10 @@ public class ListController {
 								@RequestParam(value = "searchPeriod", required = false) String searchPeriod
 								) {
 		
-		//default 미로그인 - 로그인 요청 페이지 
-		String viewpage = "/member/loginRequiredAdmin";
+		//default 미로그인 - 로그인 요청 페이지 --> AuthCheckInterceptor 로 처리 
+		/*String viewpage = "/member/loginRequiredAdmin";
 		
-		HttpSession session = req.getSession(false);
+		HttpSession session = req.getSession(false);*/
 		
 		//검색유형+키워드 받아서 객체 생성 
 		ListSearchParam sparam = null;
@@ -60,7 +60,7 @@ public class ListController {
 		}
 
 		//로그인 시
-		if(session != null && session.getAttribute("LoginInfo") != null) {
+		/*if(session != null && session.getAttribute("LoginInfo") != null) {
 			
 			LoginInfo loginInfo = (LoginInfo) session.getAttribute("LoginInfo");
 			
@@ -72,7 +72,14 @@ public class ListController {
 				viewpage = "/member/memberList";
 			}
 
-		}		
+		}*/		
+		
+		/* AuthCheckInterceptor 로 처리 */
+		MemberList list = memberListService.getMemberList(page, sparam);
+		model.addAttribute("list", list);
+		
+		//AuthCheckInterceptor 로 처리할 기본 뷰페이지 설정 
+		String viewpage = "/member/memberList";
 		
 		return viewpage;
 	}

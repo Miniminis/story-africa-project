@@ -15,7 +15,7 @@
 	<div class="container">
 		<!-- content start -->
 		<div id="content" class="inner">
-			<h3>NullPointerException 발생!!!</h3>
+			<h3>NullPointerException 발생이라규웅ㅇㅇㅇ우우우우우우우웅</h3>
 			<a href="<%= request.getContextPath()%>/index.jsp" class="btn btn-warning btn-lg">홈으로 가기</a>
 		</div>
 		<!-- content end -->

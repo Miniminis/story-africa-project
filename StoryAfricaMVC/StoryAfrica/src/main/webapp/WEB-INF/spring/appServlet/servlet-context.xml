@@ -33,6 +33,20 @@
 		</beans:property>
 	</beans:bean>
 	
+	<!-- 여러개의 인터셉터를 등록! -->
+	<interceptors>
+		<!-- 로그인 auth check 을 위한 인터셉터 구현 클래스 등록 -->
+		<interceptor>
+			<mapping path="/member/mypage/**"/> <!-- 마이페이지는 로그인 사용자만 볼 수 있게  -->
+			<!-- <exclude-mapping path="/member/mypage/help/**"/> -->
+			<beans:bean class="com.storyafrica.sa.intercepter.AuthCheckInterceptor"/>
+		</interceptor>
+		<interceptor>
+			<mapping path="/member/memberlist/**"/> <!-- 리스트는 관리자만 볼 수 있게  -->
+			<beans:bean class="com.storyafrica.sa.intercepter.AuthCheckInterceptor"/>
+		</interceptor>
+	</interceptors>
+	
 	<context:component-scan base-package="com.storyafrica.sa" />	
 	
 </beans:beans>
