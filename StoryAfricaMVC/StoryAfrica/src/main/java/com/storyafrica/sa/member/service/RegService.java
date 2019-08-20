@@ -14,6 +14,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.storyafrica.sa.mail.service.MailSenderService;
 import com.storyafrica.sa.member.dao.MemberDao;
 import com.storyafrica.sa.member.dao.MemberSessionDao;
 import com.storyafrica.sa.member.domain.Member;
@@ -26,6 +27,10 @@ public class RegService implements MemberService {
 	private SqlSessionTemplate sqltemplate;
 	
 	private MemberSessionDao memSessDao; 
+	
+	//회원가입후 자동메일 발송 처리 
+	@Autowired
+	MailSenderService mailService;
 	
 	
 	public Map<String, Object> regist(MemberRegist memberRegist, HttpServletRequest req) {
@@ -83,6 +88,10 @@ public class RegService implements MemberService {
 		memberMap.put("resultCnt", resultCnt);
 		memberMap.put("member", member);
 
+		//회원가입 절차 모두 완료되면 확인메일 전송 : 서비스에서 처리
+		mailService.sendWelcomeMail(member.getUserid());
+		
+		
 		return memberMap;
 				
 	}

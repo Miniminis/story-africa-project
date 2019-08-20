@@ -20,10 +20,7 @@
         <a class="nav-link" href="<c:url value='/'/>">여행<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<c:url value='/'/>">봉사</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<c:url value='/'/>">사업</a>
+        <a class="nav-link" href="<c:url value='/'/>">이벤트/축제</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<c:url value='/member/memberlist'/>">에디터 탐색</a>
