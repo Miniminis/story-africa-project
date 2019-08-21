@@ -8,7 +8,7 @@
 	
 	<!-- 1. 회원 insert - member -->
 	<insert id="insert" parameterType="com.storyafrica.sa.member.domain.Member">
-		insert into memberinfo values(null, #{userid}, #{userpw}, #{username}, #{userphoto}, now())
+		insert into memberinfo values(null, #{userid}, #{userpw}, #{username}, #{userphoto}, now(), null, #{vericode})
 	</insert>
 	
 	<!-- 2. 회원 1명 id로 선택  - userid-->
@@ -107,6 +107,17 @@
 	<!-- 8. 페이징 없이 전체 리스트 출력 : REST -->
 	<select id="selectListNoPage" resultType="com.storyafrica.sa.member.domain.Member">
 		select * from memberinfo order by idx desc;
+	</select>
+	
+	<!-- 9. vericode 전달한 사용자의 최종 회원가입 처리를 위한 vericode update  -->
+	<update id="updateVericode">
+		update memberinfo set verify = 'Y' where vericode=#{param1} and userid=#{param2};
+	</update>
+	
+	<!-- 2. 회원 1명 id로 선택  - userid-->
+	<select id="selectMemberByInfo" parameterType="String" 
+		resultType="com.storyafrica.sa.member.domain.Member">
+		select * from memberinfo where userid=#{param1} and username=#{param2}
 	</select>
 	
 </mapper>

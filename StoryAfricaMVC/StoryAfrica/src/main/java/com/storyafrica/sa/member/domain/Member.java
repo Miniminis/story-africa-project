@@ -1,6 +1,7 @@
 package com.storyafrica.sa.member.domain;
 
 import java.util.Date;
+import java.util.Random;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -14,9 +15,15 @@ public class Member {
 	private String username;
 	private String userphoto;
 	private Date regdate;
+	//@JsonIgnore
+	private char verify;
+	//@JsonIgnore
+	private String vericode;
 	
 	//default
-	public Member() {}
+	public Member() {
+		getVerificationCode();
+	}
 	
 	//생성자1
 	public Member(String userid, String userpw, String username, String userphoto) {
@@ -25,6 +32,7 @@ public class Member {
 		this.userpw = userpw;
 		this.username = username;
 		this.userphoto = userphoto;
+		getVerificationCode();
 	}
 	
 	//생성자2
@@ -36,6 +44,7 @@ public class Member {
 		this.username = username;
 		this.userphoto = userphoto;
 		this.regdate = regdate;
+		getVerificationCode();
 	}
 
 
@@ -87,14 +96,32 @@ public class Member {
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}	
+	
+	
+	//회원가입 확인용 코드를 위한 컬럼 추가 
+	public char getVerify() {
+		return verify;
+	}
 
+	public void setVerify(char verify) {
+		this.verify = verify;
+	}
+
+	public String getVericode() {
+		return vericode;
+	}
+
+	public void setVericode(String vericode) {
+		this.vericode = vericode;
+	}
 	
 	@Override
 	public String toString() {
 		return "Member [idx=" + idx + ", userid=" + userid + ", userpw=" + userpw + ", username=" + username
-				+ ", userphoto=" + userphoto + ", regdate=" + regdate + "]";
+				+ ", userphoto=" + userphoto + ", regdate=" + regdate + ", verify=" + verify + ", vericode=" + vericode
+				+ "]";
 	}
-	
+
 	public LoginInfo toLoginInfo() {
 		return new LoginInfo(userid, username, userphoto, regdate); 
 	}
@@ -106,6 +133,33 @@ public class Member {
 		//2. DB에 저장된 값에는 공백 문자열이 없는지
 		//3. DB에 저장된 값과 사용자의 입력값이 일치하는지 검사 필요 
 		return userpw !=null && userpw.trim().length()>0 && userpw.equals(pw);
+	}
+	
+	
+	//회원가입 확인용 vericode 생성을 위한 난수 발생 매서드 
+	private void getVerificationCode() {
+		
+		Random random = new Random();
+		StringBuffer sb = new StringBuffer();
+		
+		sb.append(random.nextInt());
+		sb.append((char)random.nextInt(26)+97);
+		
+		System.out.println(sb);
+		
+		setVericode(sb.toString());
+		
+	}
+	
+	//임시 비밀번호 전송 난수 매서드  
+	public String getRandomPw() {
+		
+		Random random = new Random();
+		
+		String tempoPw = "RANDOMPW"+random.nextInt();
+		setUserpw(tempoPw);
+		
+		return tempoPw;
 	}
 	
 }

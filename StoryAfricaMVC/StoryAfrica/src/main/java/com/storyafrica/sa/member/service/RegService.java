@@ -44,6 +44,7 @@ public class RegService implements MemberService {
 		//form 으로부터 전달받은 정보 중 파일형식이 아닌 아이디, 비번, 이름을 먼저 객체에 저장 
 		Member member = memberRegist.toMember();
 		System.out.println("rest4"+member);
+		System.out.println("rest4-1"+member.getVericode());
 		
 		//회원의 사진 파일 저장을 위한 작업 시작 		
 		//서버상의 경로 
@@ -89,7 +90,7 @@ public class RegService implements MemberService {
 		memberMap.put("member", member);
 
 		//회원가입 절차 모두 완료되면 확인메일 전송 : 서비스에서 처리
-		mailService.sendWelcomeMail(member.getUserid());
+		mailService.sendWelcomeMail(member.getUserid(), member.getVericode());
 		
 		
 		return memberMap;
@@ -112,6 +113,28 @@ public class RegService implements MemberService {
 		String chk = memSessDao.selectMemberById(id)==null?"Y":"N";
 		
 		return chk;
+	}
+	
+	//인증코드 확인 후, 최종 회원가입 처리 
+	public int finalRegist(String vericode,  String userid) {
+		
+		memSessDao = sqltemplate.getMapper(MemberSessionDao.class);
+		
+		return memSessDao.updateVericode(vericode, userid);
+		
+	}
+	
+	//미인증회원 재 인증을 위한 메일 발송 
+	public int reverifyMember(String userid) {
+		
+		memSessDao = sqltemplate.getMapper(MemberSessionDao.class);
+		
+		Member member = memSessDao.selectMemberById(userid);
+		
+		System.out.println(member);
+		
+		return mailService.resendWelcomeMail(userid, member.getVericode());
+		
 	}
 	
 

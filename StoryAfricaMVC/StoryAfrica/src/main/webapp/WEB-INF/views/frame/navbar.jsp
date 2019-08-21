@@ -104,7 +104,7 @@
 	          </form>
 	          <div class="dropdown-divider"></div>
 	          <a class="dropdown-item" href="#">너, 나의 동료가 되어라!</a>
-	          <a class="dropdown-item" href="#">비밀번호를 잊어버리셨어요?</a>
+	          <a class="dropdown-item" href="member/forgotPw">비밀번호를 잊어버리셨어요?</a>
 	        </div>
 	    </li>
     </c:if> 

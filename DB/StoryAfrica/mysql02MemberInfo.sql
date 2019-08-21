@@ -8,6 +8,8 @@ create table memberinfo (
     username varchar(20) not null,
     userphoto varchar(255) default '/image/noImg.png',
     regdate datetime default CURRENT_TIMESTAMP,
+    verify char(2) default 'N',
+    vericode varchar(30),
     constraint memberinfo_idx_pk PRIMARY KEY (idx),
     constraint memberinfo_userid_uk unique key (userid)
 );
@@ -16,8 +18,8 @@ create table memberinfo (
 desc memberinfo;
 select * from memberinfo;
 drop table memberinfo;
-delete from memberinfo where idx=3;
-insert into memberinfo values(null, "admin", "admin", "관리자", null, now());
+delete from memberinfo where idx=2;
+insert into memberinfo values(null, "admin", "admin", "관리자", null, now(), 'Y', '1111');
 insert into memberinfo values(null, "minis@minis", "1111", "손민희", null, now());
 insert into memberinfo values(null, "munu@munu", "1111", "순무누", null, now());
 insert into memberinfo values(null, "mama3", "1111", "손민희2", null, now());
@@ -64,6 +66,12 @@ select * from memberinfo;
 update memberinfo set userpw="0", username="삐리삐리", userphoto="noImg.png" where idx="2";
 
 select * from memberinfo order by idx desc;
+select * from memberinfo;
+update memberinfo set verify = 1234 where vericode=325319606122 and userid='minhee4735@naver.com';
+delete from memberinfo where idx=3;
+
+select * from memberinfo where userid='minhee4735@naver.com'and username='1111';
+
 
 -- --------------------------------------  GUEST BOOK  ----------------------------------------------------------------------
 create table guestbook (
@@ -139,4 +147,3 @@ drop table guestbook;
 drop table gcomment;
 drop table travel;
 drop table tcomment;
-

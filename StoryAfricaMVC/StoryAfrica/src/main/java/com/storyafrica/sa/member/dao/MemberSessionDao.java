@@ -19,5 +19,7 @@ public interface MemberSessionDao {
 	public int delete(int memberIdx);
 	public int edit(Member member);
 	public List<Member> selectListNoPage();
+	public int updateVericode(String vericode, String userid);
+	public Member selectMemberByInfo(String userid, String username);
 
 }

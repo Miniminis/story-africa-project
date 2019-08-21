@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.storyafrica.sa.member.domain.LoginInfo;
 import com.storyafrica.sa.member.service.LoginService;
@@ -59,17 +60,19 @@ public class LoginController {
 			HttpServletRequest req
 			) {
 		
-		//로그인 성공 여부 
-		boolean chk = false;
 		//default page : 로그인 실패 
 		String viewpage = "/member/loginfail";
 
-		chk = loginService.loginProcess(uid, upw, req);
+		//로그인 성공 여부 
+		int chk = loginService.loginProcess(uid, upw, req);
 		System.out.println("컴터야, 로그인 성공햇니?:"+chk);
 		
 		//로그인 성공 시 뷰페이지 
-		if(chk) {
+		if(chk == 1) {
 			viewpage = "redirect:/";
+
+		} else if(chk==2) {
+			viewpage = "/member/loginVerify";
 		}
 		
 		return viewpage;
@@ -96,10 +99,33 @@ public class LoginController {
 		
 		return viewpage;
 	}
+	
 	//로그인 필요 페이지
 	@RequestMapping("/member/loginRequired")
 	public String showLoginRequeiredPage() {
 		return "/member/loginRequired";
 	}
 
+	/* 비밀번호 찾기 
+	 * 1. 뷰에서 전달 
+	 * 2. 컨트: 비번 찾기위한 폼페이지 전달 
+	 * 3. 뷰: 해당 폼에서 질문들 리스트로 받아서 post 로 넘기기 
+	 * 4. 컨트 -서비-dao: 해당 정보와 정확히 일치하는 사용자 찾아서 member 타입으로 받기 
+	 * 5. 해당 member 가 존재하면 - 비밀번호 암호화 메일 전송 
+	 * 6. 존재하지 않으면 - 정보를 다시 확인해주세요! 
+	 * */
+	@RequestMapping("/member/forgotPw")
+	public String forgotPW() {
+		return "/member/forgotPw";
+	}
+	
+	@RequestMapping("/member/findPw")
+	@ResponseBody
+	public int findPw(@RequestParam("userid") String userid,
+							@RequestParam("username") String username) {
+		
+		return loginService.findMember(userid, username);
+	}
+	
+	
 }
