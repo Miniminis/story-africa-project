@@ -82,7 +82,7 @@ create table guestbook (
     gphoto varchar(255),
     constraint guestbook_gidx_pk PRIMARY KEY (gidx),
     constraint guestbook_idx_fk foreign key(idx) 
-    references memberinfo(idx)
+    references memberinfo(idx) on delete cascade
 );
 
 select * from guestbook;
@@ -96,14 +96,18 @@ create table gcomment (
     gcwritedate datetime default CURRENT_TIMESTAMP not null,
     constraint gcomment_gcidx_pk PRIMARY KEY (gcidx),
     constraint gcomment_gidx_fk foreign key(gidx) 
-    references guestbook(gidx),
+    references guestbook(gidx) on delete cascade,
     constraint gcomment_idx_fk foreign key(idx) 
-    references memberinfo(idx)
+    references memberinfo(idx) on delete cascade
 );
 
 select * from gcomment;
 desc gcomment;
 select * from memberinfo, guestbook, gcomment; 
+
+
+select * from memberinfo;
+drop table guestbook;
 
 -- --------------------------------------TRAVEL ----------------------------------------------------------------------
 create table travel (

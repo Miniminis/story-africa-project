@@ -133,6 +133,17 @@ EDITOR LIST PAGE
 	margin: 50px 0;
 }
 
+/* 
+Member EDIT FORM 
+ */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.mr-t01 {
+	margin-bottom: 5px;
+}
+
 
 /*
 NOW HERE PAGE  
@@ -155,14 +166,6 @@ TRAVEL PAGE
 /*.mr_nowForm{}*/
 
 
-/*
-BUSINESS PAGE 
-*/
-
-
-/*
-VOLUNTARY WORK PAGE  
-*/
 
 
 

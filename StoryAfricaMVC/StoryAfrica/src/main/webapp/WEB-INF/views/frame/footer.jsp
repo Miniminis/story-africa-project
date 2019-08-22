@@ -12,8 +12,6 @@
       <h5>Story Africa</h5>
       <ul class="list-unstyled text-small">
         <li><a class="text-muted" href="#">여행</a></li>
-        <li><a class="text-muted" href="#">사업</a></li>
-        <li><a class="text-muted" href="#">봉사</a></li>
         <li><a class="text-muted" href="#">에디터 탐색</a></li>
         <li><a class="text-muted" href="#">지금, 여기</a></li>
       </ul>

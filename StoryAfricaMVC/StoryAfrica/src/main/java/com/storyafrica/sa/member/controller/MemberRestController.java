@@ -33,8 +33,8 @@ import com.storyafrica.sa.member.service.EditService;
 import com.storyafrica.sa.member.service.MemberListService;
 import com.storyafrica.sa.member.service.RegService;
 
-//@RestController //@ResponseBody 생략 : 뷰페이지 구성하지 않고 데이터만 반환 
-//@RequestMapping("/api/members")
+@RestController //@ResponseBody 생략 : 뷰페이지 구성하지 않고 데이터만 반환 
+@RequestMapping("/api/members")
 public class MemberRestController {
 	
 	@Autowired

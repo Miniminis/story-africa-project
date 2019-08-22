@@ -34,6 +34,17 @@
 		        	<tr><td>${member.userpw}</td></tr>
 		        	<tr><td>${member.regdate}</td></tr>
 		        	<tr><td>
+		        		<!-- 수정 modal  -->
+		        		<button data-toggle="modal" 
+		        				data-target="#editModal" 
+		        				data-idx="${member.idx}"
+		        				data-userphoto="${member.userphoto}"
+		        				data-userid="${member.userid}" 
+		        				data-username="${member.username}"
+		        				data-keyboard="true" 
+		        				class="btn btn-light">
+		        				수정modal
+		        		</button>
 		        		<a href="<c:url value='editForm?memberIdx=${member.idx}'/>" class="btn btn-secondary">수정</a>    
 			      	  	<a href='#' onclick="deleteMember(${member.idx})" class="btn btn-secondary">삭제</a>
 		        	</td></tr>
@@ -83,8 +94,8 @@
 	      <input class="form-control" type="search" name="keyword" placeholder="회원검색" aria-label="Search">
 	      <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">검색하기</button>
 	    </form>	
-    </div>
-    </div>
+    </div><!--text-center end -->
+    </div><!-- container end  -->
     
     <!-- 수정 폼 Modal -->
 	<div id="editModal" class="modal fade" tabindex='-1' role="dialog">
@@ -99,48 +110,53 @@
 	      </div>
 	      
 	      <div class="modal-body">
-	        <form action="editMember" method="post" class="form-signin" 
-					enctype="multipart/form-data">
+	        <form id="memEditForm" method="post" enctype="multipart/form-data">
 	          <div class="form-group">
-				<img class="listImg" value="">
-				<h1 class="h3 mb-3 font-weight-normal">회원수정</h1>
-		
-				<input type="hidden" name="idx" value="${member.idx}"> <!-- 회원 고유번호-->
+				<img src='' id="listImg"><br>
 				
-				<label for="inputEmail" class="sr-only">아이디</label>
-				<input type="text" name="userid" id="inputEmail" class="form-control" 
-					value="${member.userid}" readonly>
+				<!-- 회원 고유번호-->
+				<input type="hidden" name="memidx" id="memidx" value=""> 
 				
-				<label for="inputPassword" class="sr-only">비밀번호</label>
-				<input type="password" name="userpw" id="inputPassword" 
+				<label for="inputEmail">아이디</label>
+				<input type="text" name="userid" id="userid" class="form-control" 
+					value="" readonly>
+				
+				<label for="inputPassword">비밀번호</label>
+				<input type="password" name="userpw" id="userpw" 
 					class="form-control" placeholder="비밀번호" required>
 					
 				<!-- <label for="inputPassword" class="sr-only">비밀번호확인</label>
 				<input type="password" name="userpw" id="inputPassword" 
 					class="form-control" placeholder="비밀번호확인" required> -->
 				
-				<label for="inputUsername" class="sr-only">이름</label>
-				<input type="text" name="username" id="inputUsername" 
-					class="form-control" value="${member.username}" required>
+				<label for="inputUsername">이름</label>
+				<input type="text" name="username" id="username" 
+					class="form-control" value="" required>
 				
-				<label>
-					<input type="file" name="userphoto" class="form-control">
-					<input type="hidden" name="oldPhoto">
-				</label>
+				<!-- 새로운 사진 -->
+				<div class="form-group">
+	              <label for="userphoto">프로필 사진</label>
+	              <div class="custom-file">
+	                <input type="file" class="custom-file-input form-control" name="userphoto" id="userphoto" aria-describedby="inputGroupFileAddon01">
+	                <label class="custom-file-label" for="userphoto">탐색</label>
+	                <!-- 기존사진파일 -->
+	                <input type="hidden" id="oldPhoto" name="oldPhoto">
+	              </div>
+	            </div>
 				
-				<input type="submit" value="회원수정" class="btn btn-lg btn-primary btn-block" >
 	          </div>
 	        </form>
-	      </div>
+	      </div><!-- modal-body end -->
 	      
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
-	        <button type="button" onclick="submitDelMsg()" class="btn btn-primary">Send message</button>
-	      </div>
-	    </div>
-	    
-	  </div>
-	  
+	        <button type="button" class="btn btn-light" data-dismiss="modal">닫기</button>
+	        <button type="button" onclick="submitEditMember()" class="btn btn-light">수정</button>
+	      </div><!-- modal-footer end -->
+	      
+	      </div><!-- modal-content end -->
+	    </div><!-- modal-dialog -->	    
+	 </div><!--modal END  -->
+	
 	<!-- footer start  -->
 	<%@ include file="/WEB-INF/views/frame/footer.jsp"%>
 	<!-- footer end -->	

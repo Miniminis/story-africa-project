@@ -7,8 +7,8 @@
 <!--navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
   <a class="navbar-brand" href="<c:url value='/'/>">
-    <img src="/docs/4.3/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
-    Story Africa
+<!--     <img src="/docs/4.3/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+ -->    Story Africa
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -19,9 +19,9 @@
       <li class="nav-item active">
         <a class="nav-link" href="<c:url value='/'/>">여행<span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
+      <%-- <li class="nav-item">
         <a class="nav-link" href="<c:url value='/'/>">이벤트/축제</a>
-      </li>
+      </li> --%>
       <li class="nav-item">
         <a class="nav-link" href="<c:url value='/member/memberlist'/>">에디터 탐색</a>
       </li>
