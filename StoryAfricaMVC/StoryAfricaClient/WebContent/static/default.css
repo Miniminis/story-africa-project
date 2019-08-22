@@ -1,0 +1,169 @@
+/*
+COMMON SETTING
+*/
+html, body {
+    margin: 0;
+    padding: 0;
+}
+/*
+BUTTON
+*/
+
+
+/*
+a - Link 
+*/
+
+
+
+
+/*
+INDEX PAGE
+*/
+
+/*index01*/
+.jumbotron {
+    margin-bottom: 0;
+    height: 100vh;
+    padding: 250px 0;
+}
+
+.index_section {
+    background-color: transparent;
+    background-image: url("https://entertainme.net/wp-content/uploads/2017/11/African-culture.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*  index 02  */
+.card_img_h {
+    height: 200px;
+}
+
+.mr_tobo {
+    margin: 50px 0;
+}
+
+/* index 03 */
+.index_carousel_h {
+    height: 400px;
+}
+
+
+/* 
+REG MEMBER 
+ */
+#idchk {
+	display: none;
+} 
+ 
+ 
+
+/*
+MY PAGE
+*/
+.p-top-my {
+    padding: 30px 0;
+}
+
+.p-top-my02 {
+    padding: 100px 0;
+}
+
+.my-center {
+    margin: 0 auto;
+}
+
+.h-myInfo {
+    height: 100vh;
+    margin-bottom: 0;
+}
+
+.listImg {
+	width: 150px; 
+	height: 150px;
+	border-radius: 100px;
+}
+
+/*
+EDITOR LIST PAGE 
+*/
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+}
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-md-3 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: 400;
+}
+.marketing .col-lg-4 p {
+  margin-right: .75rem;
+  margin-left: .75rem;
+}
+
+.p-top {
+    padding: 100px 0;
+}
+
+#listImg {
+	width: 150px; 
+	height: 150px;
+	border-radius: 100px;
+}
+.form-inline {
+	display: block;
+	margin: 10px;
+}
+.noSearchResult {
+	margin: 50px 0;
+}
+
+
+/*
+NOW HERE PAGE  
+*/
+.mr_nowForm {
+    margin: 100px 0;
+}
+
+.mr_line {
+    margin: 20px 0;
+}
+
+.mr_nowList {
+    margin: 50px 0;
+}
+
+/*
+TRAVEL PAGE 
+*/
+/*.mr_nowForm{}*/
+
+
+/*
+BUSINESS PAGE 
+*/
+
+
+/*
+VOLUNTARY WORK PAGE  
+*/
+
+
+
+
