@@ -37,22 +37,27 @@ function submitEditMember() {
 	var idx = $('#memidx').val();
 	//폼 데이타 얻어오기
 	var editFormData = $('#memEditForm')[0];
+	alert(editFormData);
 	//form data object 생성 
 	var data = new FormData(editFormData);
+	alert(data);
 	
 	$.ajax({
-		url: 'http://localhost:8080/sa/api/members/'+idx, 
+		//url: 'http://localhost:8080/sa/api/members/'+idx, 
+		url: 'member/editMember', 
 		type: 'put',
 		enctype: 'multipart/form-data',
 		data: data,
 		processData: false,
-		contentType: false,
+		//dataType: 'json',
+		contentType:'application/json;charset=UTF-8',
+		/*contentType: false,*/
         cache: false,
         success : function(data) {
-        	alert('성공!');
+        	alert(data);
         },
         error: function (e) {
-        	alert('실패 라눙...ㅠㅠㅠ');
+        	alert(e);
         }
 	})
 };

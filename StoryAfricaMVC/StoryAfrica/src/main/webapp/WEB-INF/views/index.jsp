@@ -117,7 +117,7 @@
     </div>
     
     <!--카드형 리스트 케러셀 실험 ING....-->
-     <div class="bd-example">
+     <!-- <div class="bd-example">
       <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
@@ -163,7 +163,7 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
-    </div>
+    </div> -->
 		
 	<!-- footer start  -->
 	<%@ include file="/WEB-INF/views/frame/footer.jsp"%>
