@@ -44,7 +44,7 @@
             <div class="form-group">
               <label for="inputEmail">아이디</label>
               <input type="checkbox" id="idchk">
-              <input type="text" class="form-control" name="userid" id="inputEmail" placeholder="아이디" required autofocus>
+              <input type="email" class="form-control" name="userid" id="inputEmail" placeholder="아이디" required autofocus>
             </div>
             <div class="form-group">
               <label for="inputPassword">비밀번호</label>
@@ -86,7 +86,7 @@
 	          <form action="member/loginProcess" method="post" class="px-4 py-3">
 	            <div class="form-group">
 	              <label for="inputEmail">아이디</label>
-	              <input type="text" class="form-control" id="inputEmail" name="userid"  placeholder="아이디" required autofocus>
+	              <input type="email" class="form-control" id="inputEmail" name="userid"  placeholder="아이디" required autofocus>
 	            </div>
 	            <div class="form-group">
 	              <label for="inputPassword">비밀번호</label>

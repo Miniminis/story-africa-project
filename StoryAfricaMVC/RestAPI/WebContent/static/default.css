@@ -1,0 +1,23 @@
+@charset "UTF-8";
+body {
+	text-align: center;
+}
+table {
+	margin: 0 auto;
+}
+#delBtn, #editBtn {
+	cursor: pointer;
+}
+#container {
+	border : 1px solid red;
+	border-radius: 30px;
+	width: 970px;
+	margin: 50px auto;
+	padding: 50px;
+}
+.mt-01 {
+	margin-top: 50px;
+}
+hr {
+	border : 1px solid red;
+}
