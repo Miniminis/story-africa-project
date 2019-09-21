@@ -1,5 +1,5 @@
-# [Story-africa-project](http://15.164.99.110:8080/storyafrica/)
-> 아프리카를 사랑하는 모든 사람들을 위한 콘텐츠 플랫폼
+# Story-africa-project
+> 아프리카를 사랑하는 모든 사람들을 위한 콘텐츠 플랫폼  [Site Link](http://15.164.99.110:8080/storyafrica/)
 
 ## 흐름도
 <img src="/main.png">
@@ -22,6 +22,16 @@
   * `Ajax` 이용 : 서버 <--> 클라이언트 비동기통신
   
 ## 버전
+* 자세한 버전관리는 커밋 내역을 참고 
+* v7 ~ : 
+  * [소스코드+커밋내역](https://github.com/Miniminis/Story-africa-project)
+* v6 : 
+  * [소스코드](https://github.com/Miniminis/JSP-study-note/tree/master/MemberManagerVer6)
+  * [커밋내역](https://github.com/Miniminis/JSP-study-note/commits/master)
+* v1 ~ v5 : 
+  * [소스코드](https://github.com/Miniminis/JSP-study-note/tree/master/MemberManager) 
+  * [커밋내역](https://github.com/Miniminis/JSP-study-note/commits/master)
+
 * v8
   * `mybatis` 이용하여 DAO 수정 및 검색기능 동적 쿼리문 재구성 
   * `RESTful Api` 구조로 변경 
