@@ -8,11 +8,11 @@
 <mapper namespace="com.gb.mvc.dao.MessageSessionDao">
 
 	<insert id="insert" parameterType="com.gb.mvc.model.Message"> <!-- id 필수! -->
-		insert into GUESTBOOK_MESSAGE values (null, #{gname}, #{gpassword}, #{gmessage}) 
+		insert into guestbook_message values (null, #{gname}, #{gpassword}, #{gmessage});
 	</insert>
 	
 	<select id="selectCnt" resultType="int">
-		select count(*) from guestbook_message
+		select count(*) from guestbook_message;
 	</select>
 	
 	<!-- DTO와 Mysql 테이블 컬럼 이름이 다른 경우 resultMap을 통해서 컬럼명과 프로퍼티를 설정할 수 있다.  -->
@@ -24,15 +24,15 @@
 	</resultMap>
 	
 	<select id="selectList" parameterType="map" resultMap="listResultMap">
-		select * from guestbook_message order by message_id desc limit #{startRow}, #{endRow}
+		select * from guestbook_message order by message_id desc limit #{startRow}, #{endRow};
 	</select>
 	
 	<select id="select" parameterType="int"  resultType="com.gb.mvc.model.Message">
-		select * from guestbook_message where message_id= #{message_id}
+		select * from guestbook_message where message_id= #{message_id};
 	</select>
 	
 	<delete id="deleteMessage" parameterType="int">
-		delete from guestbook_message where message_id= #{message_id}
+		delete from guestbook_message where message_id= #{message_id};
 	</delete>
 	
 </mapper>

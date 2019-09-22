@@ -16,9 +16,9 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <%-- <li class="nav-item active">
         <a class="nav-link" href="<c:url value='/'/>">여행<span class="sr-only">(current)</span></a>
-      </li>
+      </li> --%>
       <%-- <li class="nav-item">
         <a class="nav-link" href="<c:url value='/'/>">이벤트/축제</a>
       </li> --%>
@@ -92,14 +92,14 @@
 	              <label for="inputPassword">비밀번호</label>
 	              <input type="password" class="form-control" id="inputPassword" name="userpw" placeholder="비밀번호" required>
 	            </div>
-	            <div class="form-group">
+	            <!-- <div class="form-group">
 	              <div class="form-check">
 	                <input type="checkbox" class="form-check-input" id="rememberMe" name="autologin" value="saveID">
 	                <label class="form-check-label" for="rememberMe">
-	                  자동로그인
+	                 	 자동로그인
 	                </label>
 	              </div>
-	            </div>
+	            </div> -->
 	            <button type="submit" class="btn btn-primary">로그인</button>
 	          </form>
 	          <div class="dropdown-divider"></div>
