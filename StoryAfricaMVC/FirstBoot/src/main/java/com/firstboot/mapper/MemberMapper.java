@@ -8,10 +8,14 @@ import org.mybatis.spring.annotation.MapperScan;
 import com.firstboot.domain.Member;
 
 public interface MemberMapper {
-
+	
+	//xml 에서 쿼리문 작성 
+	public Member selectMemberById(String userid);
+	
+	//@select 어노테이션 통해서 interface 에서 직접 구현 
 	@Select("select * from memberinfo order by idx")
 	public List<Member> selectMemberList();
-	public Member selectMemberById(String userid);
+	
 	
 	/*
 	 * Boot에서는 Mapper 설정하는 방법이 2가지 

@@ -2,6 +2,9 @@ package com.firstboot.controller;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,19 +15,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.firstboot.domain.Member;
 import com.firstboot.entity.MemberEntity;
 import com.firstboot.mapper.MemberMapper;
+import com.firstboot.repository.MemberDaoImpl;
 import com.firstboot.repository.MemberRepository;
 
 @Controller
 public class IndexController {
 
-	@Autowired
-	private SqlSessionTemplate template;
-
-	private MemberMapper mapper;
-	
-	@Autowired
-	private MemberRepository repository; //interface 임에도 주입을 받을 수 있고 + 부트 시작과 동시에 객체 생성 
-
+	//test 	
 	@RequestMapping("/")
 	@ResponseBody
 	public String index() {
@@ -39,6 +36,13 @@ public class IndexController {
 	// return 타입을 정해준다면 : 해당 데이터를 표시
 	// return 타입이 없다면 : url 에 지정된 페이지를 표시
 
+	////////////sql session template + mapper interface////////////////////////
+	@Autowired
+	private SqlSessionTemplate template;
+
+	private MemberMapper mapper;
+	
+	//MemberMapper interface + xml 
 	@RequestMapping("/member")
 	@ResponseBody
 	public Member selectByIdx() {
@@ -49,6 +53,7 @@ public class IndexController {
 		return member;
 	}
 
+	//MemberMapper interface + @Select annotation
 	@RequestMapping("/members")
 	@ResponseBody
 	public List<Member> selectMembers() {
@@ -61,7 +66,10 @@ public class IndexController {
 	}
 	
 	////////////////////////////////////////JPA/////////////////////////////////////
-	
+	@Autowired
+	private MemberRepository repository; //interface 임에도 주입을 받을 수 있고 + 부트 시작과 동시에 객체 생성 
+
+	//내장 매서드
 	@RequestMapping("/jpa/members")
 	@ResponseBody //return entity 타입 + @ResponseBody = json 형태로 페이지 출력 
 	public List<MemberEntity> getMemberList() {
@@ -75,6 +83,7 @@ public class IndexController {
 		return list;
 	}
 	
+	//내장 매서드
 	@RequestMapping("/jpa/member/insert")
 	@ResponseBody
 	public String insertMember() {
@@ -87,6 +96,7 @@ public class IndexController {
 		return repository.saveAndFlush(entity).toString();
 	}
 	
+	//내장 매서드
 	@RequestMapping("/jpa/member/edit/{idx}")
 	@ResponseBody
 	public String editMember(@PathVariable("idx") int idx) {
@@ -101,6 +111,7 @@ public class IndexController {
 		return repository.saveAndFlush(entity).toString();
 	}
 	
+	//내장 매서드
 	@RequestMapping("/jpa/member/delete/{idx}")
 	@ResponseBody
 	public String deleteMember(@PathVariable("idx") int idx) {
@@ -113,6 +124,7 @@ public class IndexController {
 		return "DELETE SUCCESSSSSSSSSSSSSSSSSSS";
 	}
 	
+	//직접정의
 	@RequestMapping("/jpa/member/{idx}")
 	@ResponseBody
 	public MemberEntity getMember(@PathVariable("idx") int idx) {
@@ -123,6 +135,7 @@ public class IndexController {
 		return entity;
 	}
 	
+	//직접정의
 	@RequestMapping("/jpa/member/searchByName/{username}")
 	@ResponseBody
 	public List<MemberEntity> getMember(@PathVariable("username") String username) {
@@ -134,6 +147,7 @@ public class IndexController {
 		return list;
 	}
 	
+	//직접정의
 	@RequestMapping("/jpa/member/searchByBetween/{idx1}/{idx2}")
 	@ResponseBody
 	public List<MemberEntity> getMember(@PathVariable("idx1") int idx1,
@@ -141,6 +155,80 @@ public class IndexController {
 		List<MemberEntity> list = null;
 		
 		list = repository.findByIdxBetween(idx1, idx2);
+		
+		return list;
+	}
+	
+	/////////////////////////////////DAO 구현 ///////////////////////////////////
+	@PersistenceContext
+	EntityManager entityManager;
+	//1. 부트 시작과 동시에 EntityManager 자동으로 bean 에 등록됨 
+	//2. @PersistenceContext 가 필드에 연결 
+	// - 여러개 설정할 수 없고 bean binding 은 1개만 
+	//  == 여러개의 DAO 만들기는 불가함! 
+	
+	private MemberDaoImpl dao;
+	
+	/*public IndexController() {
+		this.dao = new MemberDaoImpl(entityManager);
+	}*/
+	
+	//DAO 통해서 리스트 출력
+	@RequestMapping("/entitymanager/members")
+	@ResponseBody
+	public List<MemberEntity> memberListAll() {
+		
+		//dao 생성자통해서 정의
+		dao = new MemberDaoImpl(entityManager);
+		
+		List<MemberEntity> list = dao.getAll();
+		
+		for(MemberEntity memberEntity : list) {
+			System.out.println(memberEntity);
+		}
+		
+		return list;
+	}
+	
+	
+	//DAO 통해서 idx 통해 검색 결과 출력 
+	@RequestMapping("/entitymanager/member/{idx}")
+	@ResponseBody
+	public MemberEntity oneMember(@PathVariable("idx") long idx) {
+		
+		dao = new MemberDaoImpl(entityManager);
+		MemberEntity entity = dao.findByIdx(idx);
+		return entity;
+	}
+	
+	//DAO 통해서 username 통해 검색한 결과 출력 
+	@RequestMapping("/entitymanager/members/{username}")
+	@ResponseBody
+	public List<MemberEntity> memberListByUsername(@PathVariable("username") String username) {
+		dao = new MemberDaoImpl(entityManager);
+		List<MemberEntity> entities = dao.findByUname(username);
+		return entities;
+	}
+	
+	//DAO 통해서 idx or username or userid 검색 구현 
+	@RequestMapping("/entitymanager/members/find/{keyword}")
+	@ResponseBody
+	public List<MemberEntity> memberListSearch (@PathVariable("keyword") String keyword) {
+		dao = new MemberDaoImpl(entityManager);
+		List<MemberEntity> entities =  dao.find(keyword);
+		return entities;
+	}
+	
+	//@Query
+	@RequestMapping("/queryannotation/members")
+	@ResponseBody
+	public Iterable<MemberEntity> memberAllList() {
+		
+		Iterable<MemberEntity> list = repository.findAllOrderByIdxDesc();
+		
+		for (MemberEntity memberEntity : list) {
+			System.out.println(memberEntity);
+		}
 		
 		return list;
 	}
