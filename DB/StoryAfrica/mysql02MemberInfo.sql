@@ -1,5 +1,9 @@
 -- MemberInfo Table 
 
+alter table memberinfo auto_increment=1;
+SET @COUNT = 0; 
+UPDATE memberinfo SET idx= @COUNT:=@COUNT+1;
+
 -- 테이블 생성
 create table memberinfo (
 	idx int(7) not null auto_increment,

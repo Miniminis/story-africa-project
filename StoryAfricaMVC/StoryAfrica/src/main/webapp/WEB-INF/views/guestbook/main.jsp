@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Insert title here</title>
+<title>지금, 여기</title>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -78,8 +78,8 @@
 	      </div>
 	      
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
-	        <button type="button" onclick="submitDelMsg()" class="btn btn-primary">Send message</button>
+	        <button type="button" class="btn btn-light" data-dismiss="modal">닫기</button>
+	        <button type="button" onclick="submitDelMsg()" class="btn btn-primary">삭제</button>
 	      </div>
 	    </div>
 	    

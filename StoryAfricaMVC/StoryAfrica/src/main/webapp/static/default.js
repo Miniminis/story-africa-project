@@ -4,7 +4,7 @@
 $(document).ready(function(){
 	
 	//중복 아이디 체크 
-	/*$('#inputEmail').focusout(function(){
+	$('#inputEmail').focusout(function(){
 		//ajax 비동기 통신 id 전송 사용 유무에 대한 결과 값을 반환 
 		$.ajax({
 			url: 'member/regIdChk', 
@@ -35,5 +35,5 @@ $(document).ready(function(){
 				}
 			}
 		});
-	});*/
+	});
 });

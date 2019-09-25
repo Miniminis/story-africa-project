@@ -12,7 +12,6 @@ $(document).ready(function(){
 		modal.find('.modal-title').text(mid+'번 메시지 삭제');
 		modal.find('#msgNum').val(mid);
 		modal.find('#delPwChk').focus(); //not working ㅠㅠㅠ 
-		
 
 	});
 

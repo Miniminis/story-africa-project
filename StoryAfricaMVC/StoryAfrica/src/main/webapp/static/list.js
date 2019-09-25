@@ -26,7 +26,7 @@ $(document).ready(function(){
 function deleteMember(idx) {
 	
 	if(confirm('삭제 된 정보는 복구가 불가능합니다. 정말 삭제하시겠습니까? ')) {
-		location.href='http://localhost:8080/sa/member/deleteProcess/'+idx; 
+		location.href='http://15.164.99.110:8080/storyafrica/member/deleteProcess/'+idx; 
 							//href 경로 : 현재 위치에서 찾는다! - REST
 	}
 };
