@@ -17,10 +17,7 @@
   * v1 ~ v6 : `Oracle`
 * Spring Framework
 * `MyBatis`
-* RESTful Api 이용
-  * 서버와 클라이언트 완전 분리 구조 
-  * `Ajax` 이용 : 서버 <--> 클라이언트 비동기통신
-  
+
 ## 버전
 * 자세한 버전관리는 커밋 내역을 참고 
 * v7 ~ : 
@@ -31,6 +28,8 @@
 * v1 ~ v5 : 
   * [소스코드](https://github.com/Miniminis/JSP-study-note/tree/master/MemberManager) 
   * [커밋내역](https://github.com/Miniminis/JSP-study-note/commits/master)
+
+<hr>
 
 * v8
   * `mybatis` 이용하여 DAO 수정 및 검색기능 동적 쿼리문 재구성 

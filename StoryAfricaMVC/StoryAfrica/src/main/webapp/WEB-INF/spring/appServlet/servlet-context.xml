@@ -42,8 +42,8 @@
 			<beans:bean class="com.storyafrica.sa.intercepter.AuthCheckInterceptor"/>
 		</interceptor>
 		<interceptor>
-			<mapping path="/member/memberlist/**"/> <!-- 리스트는 관리자만 볼 수 있게  -->
-			<beans:bean class="com.storyafrica.sa.intercepter.AuthCheckInterceptor"/>
+			<mapping path="/member/memberlist/**"/> <!-- 리스트는 로그인 사용자만 볼 수 있게  -->
+			<beans:bean class="com.storyafrica.sa.intercepter.AdminCheckInterceptor"/>
 		</interceptor>
 	</interceptors>
 	

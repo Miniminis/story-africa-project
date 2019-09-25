@@ -5,11 +5,11 @@
 <script>
 	var msg;
 	
-	<c:if test="${rscnt>0}" >
+	<c:if test="${rscnt>0}">
 		msg = '회원정보가 성공적으로 수정되었습니다.';
 	</c:if>
 	
-	<c:if test="${rscnt==0}" >
+	<c:if test="${rscnt==0}">
 		msg='회원 수정에 실패하였습니다! ';
 	</c:if>
 	

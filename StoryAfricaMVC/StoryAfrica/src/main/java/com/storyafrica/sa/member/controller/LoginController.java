@@ -100,11 +100,18 @@ public class LoginController {
 		return viewpage;
 	}
 	
-	//로그인 필요 페이지
+	//로그인 필요 페이지 : + from interceptor
 	@RequestMapping("/member/loginRequired")
 	public String showLoginRequeiredPage() {
 		return "/member/loginRequired";
 	}
+	
+	//관리자 로그인 필요 페이지 + from interceptor
+	@RequestMapping("/member/loginRequiredAdmin")
+	public String showAdminLoginRequeiredPage() {
+		return "/member/loginRequiredAdmin";
+	}
+
 
 	/* 비밀번호 찾기 
 	 * 1. 뷰에서 전달 

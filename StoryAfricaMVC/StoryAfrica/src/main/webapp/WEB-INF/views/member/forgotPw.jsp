@@ -9,7 +9,7 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 </head>
 <body>
-	<h1>비번을 잃어버렸다면, 이곳으로 오시개...왕!</h1>
+	<h1>비밀번호 찾기</h1>
 	
 	<form id="forgotPw">
 		<div>

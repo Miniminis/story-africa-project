@@ -7,11 +7,18 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<style>
+#emailVerifySection {
+	text-align: center;
+	margin-top: 200px;
+}
+</style>
 </head>
 <body>
-	<h1>로그인 인증 해야지 ㅠㅠㅠ </h1>
-	
-	<a href="#" id="resendMail">다시 인증 메일 보내기 gogo</a>
+	<section id="emailVerifySection">
+		<h2>이메일 인증을 완료한 후, 로그인 할 수 있습니다! </h2>
+		<a href="#" id="resendMail">재 인증 메일 보내기</a>
+	</section>
 	
 <script>
 	$(document).ready(function(){
@@ -22,7 +29,7 @@
 				type: 'post',
 				success: function(data) {
 					if(data >0) {
-						alert('재인증 메일이 발송되었음! 해당 링크로 회원가입 완료해주삼33');
+						alert('재인증 메일이 발송되었습니다. 메일의 링크를 통해 인증을 완료해주세요!');
 					}
 				}
 			})

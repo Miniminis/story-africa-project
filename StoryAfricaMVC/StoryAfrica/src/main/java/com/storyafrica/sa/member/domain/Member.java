@@ -5,6 +5,7 @@ import java.util.Random;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class Member {
@@ -14,6 +15,7 @@ public class Member {
 	private String userpw;
 	private String username;
 	private String userphoto;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd hh:mm", timezone="Asia/Seoul")
 	private Date regdate;
 	//@JsonIgnore
 	private char verify;

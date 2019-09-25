@@ -5,17 +5,6 @@ html, body {
     margin: 0;
     padding: 0;
 }
-/*
-BUTTON
-*/
-
-
-/*
-a - Link 
-*/
-
-
-
 
 /*
 INDEX PAGE
@@ -124,10 +113,11 @@ EDITOR LIST PAGE
 	width: 150px; 
 	height: 150px;
 	border-radius: 100px;
+	margin: 10px;
 }
 .form-inline {
 	display: block;
-	margin: 10px;
+	margin: 10px 10px 100px 10px;
 }
 .noSearchResult {
 	margin: 50px 0;
@@ -143,7 +133,14 @@ Member EDIT FORM
 .mr-t01 {
 	margin-bottom: 5px;
 }
-
+#editForm {
+	height : 100vh;
+	padding-top: 100px;
+}
+#edit {
+	padding-left: 200px;
+	padding-right: 200px;
+}
 
 /*
 NOW HERE PAGE  
@@ -164,9 +161,5 @@ NOW HERE PAGE
 TRAVEL PAGE 
 */
 /*.mr_nowForm{}*/
-
-
-
-
 
 

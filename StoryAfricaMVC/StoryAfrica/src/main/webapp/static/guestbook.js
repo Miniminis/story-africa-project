@@ -27,7 +27,7 @@ function pageview(num) {
 	//alert("1  "+num);	//최초 리스트 출력을 위한 num 매개변수 1 확인
 	$('#moreListBtn').remove();
 	$.ajax ({
-			url: 'http://localhost:8080/gbmb/api/guest',
+			url: 'http://15.164.99.110:8080/storyafrica-guestbook/api/guest',
 			type: 'get',
 			data: {page:num},
 			success : function(data){  //data: 무조건 js 형식의 객체 
@@ -48,7 +48,7 @@ function pageview(num) {
 					output += '<div class="card">';
 					output += '<div class="card-body">';
 					output += '<h5 class="card-title">'+message_id+'번 메시지</h5>';
-					output += '<h6 class="card-subtitle mb-2 text-muted">작성자 '+gname+'/ 비번'+gpassword+'</h6>';
+					output += '<h6 class="card-subtitle mb-2 text-muted">작성자 '+gname+'</h6>';
 					output += '<p class="card-text">'+gmessage+'</p>';
 					output += '<button data-toggle="modal" data-target="#delModal" data-id="'+message_id+'" data-keyboard="true" class="btn btn-light">삭제하기</button>';
 					output += '</div>';
@@ -81,7 +81,7 @@ function pageview(num) {
 function submitMsgForm() {
 
 	$.ajax({
-		url: 'http://localhost:8080/gbmb/api/guest',
+		url: 'http://15.164.99.110:8080/storyafrica-guestbook/api/guest',
 		type: 'post',
 		data: JSON.stringify({
 			gname : $('#gname').val(),
@@ -93,16 +93,16 @@ function submitMsgForm() {
 		success: function(data){
 			//성공여부 결과값이 data에 담겨 전달됨 
 			if(data>0) {
-				alert(data+'개의 메시지가 성공적으로 들어가 부러쓰~!ㅊㅋㅊㅋ');
+				alert(data+'개의 메시지가 성공적으로 등록되었습니다!');
 			} else {
-				alert('우쨰쓰까...'+data+'개의 메시지 등록 실패랑께ㅠㅠㅠ');
+				alert(data+'개의 메시지 등록에 실패하였습니다! 다시 한 번 확인해주세요!');
 			}
 			$('#list').empty(); //새로 등록된 메시지 결과 출력을 위해 기존 리스트 비워주기
 			pageview(1); //바뀐 데이터 결과 적용된 리스트 재출력 (redirect 의 기능)
             //window.location = "http://localhost:8080/gbmb/api/guest"; //페이지 번호 파라미터를 받을 수 없음 
 		}, 
 		error: function(){
-            alert("메세지 등록 실패에요 ㅠㅠㅠㅠ왜죠????");
+            alert("메시지 등록에 실패하였습니다. 다시 한 번 확인해주세요!");
         }
 	});
 	document.getElementById("writeMsgForm").reset();
@@ -116,7 +116,7 @@ function submitDelMsg() {
 	//pwchk 은 data로 보내서 @requestparam으로 받기 시도했으나 실패함. 
 	//delete 매서드는 파라미터 보내는 것이 불가한 듯 함;; --> 구글링 결과 url 로 모두 처리 
 	$.ajax({
-		url: 'http://localhost:8080/gbmb/api/guest/'+mid+'/'+pwChk,
+		url: 'http://15.164.99.110:8080/storyafrica-guestbook/api/guest/'+mid+'/'+pwChk,
 		type: 'delete',
 		//data: {},
 		/*JSON.stringify({
@@ -128,9 +128,9 @@ function submitDelMsg() {
 			//alert(data);
 			//alert(data.get('resultCnt'));
 			if(data>0) {
-				alert('삭제 성공쓰~!');
+				alert('메시지가 성공적으로 삭제되었습니다!');
 			} else {
-				alert('삭제 안됐는데 ㅠㅠㅠ 힘내여');
+				alert('메시지 삭제에 실패하였습니다. 비밀번호를 다시 한 번 확인해주세요!');
 			}
 			$('#list').empty(); //새로 등록된 메시지 결과 출력을 위해 기존 리스트 비워주기
 			pageview(1); //바뀐 데이터 결과 적용된 리스트 재출력 (redirect 의 기능)            

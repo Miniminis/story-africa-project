@@ -28,14 +28,14 @@
 			  <div class="col-md-3">
 			  	<img src='<c:url value="/uploadedfile/userphoto/${member.userphoto}"/>' id="listImg">
 		        <!-- <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg> -->
-		        <h2>${member.userid}</h2>
+		        <h5>${member.userid}</h5>
 		        <table class="table">
-		        	<tr><td>${member.username}</td></tr>
-		        	<tr><td>${member.userpw}</td></tr>
-		        	<tr><td>${member.regdate}</td></tr>
+		        	<tr><td>이름 : ${member.username}</td></tr>
+		        	<%-- <tr><td>${member.userpw}</td></tr> --%>
+		        	<tr><td>가입날짜 : ${member.regdate}</td></tr>
 		        	<tr><td>
 		        		<!-- 수정 modal  -->
-		        		<button data-toggle="modal" 
+		        		<%-- <button data-toggle="modal" 
 		        				data-target="#editModal" 
 		        				data-idx="${member.idx}"
 		        				data-userphoto="${member.userphoto}"
@@ -44,7 +44,7 @@
 		        				data-keyboard="true" 
 		        				class="btn btn-light">
 		        				수정modal
-		        		</button>
+		        		</button> --%>
 		        		<a href="<c:url value='editForm?memberIdx=${member.idx}'/>" class="btn btn-secondary">수정</a>    
 			      	  	<a href='#' onclick="deleteMember(${member.idx})" class="btn btn-secondary">삭제</a>
 		        	</td></tr>
@@ -76,7 +76,7 @@
 	
 		
 		<!-- 회원검색기능  -->
-		<form class="form-inline my-2 my-lg-0" method="get">
+		<form id="memberSearch" class="form-inline" method="get">
 			<select class="browser-default custom-select" name="searchPeriod">
 			  <option value="AllPeriod" selected>전체기간</option>
 			  <option value="day">1일</option>
@@ -98,10 +98,10 @@
     </div><!-- container end  -->
     
     <!-- 수정 폼 Modal -->
-	<div id="editModal" class="modal fade" tabindex='-1' role="dialog">
+	<!-- <div id="editModal" class="modal fade" tabindex='-1' role="dialog">
 	  <div class="modal-dialog">
 	  
-	    <!-- Modal content-->
+	    Modal content
 	    <div class="modal-content">
 	      <div class="modal-header">
 	      
@@ -114,7 +114,7 @@
 	          <div class="form-group">
 				<img src='' id="listImg"><br>
 				
-				<!-- 회원 고유번호-->
+				회원 고유번호
 				<input type="hidden" name="memidx" id="memidx" value=""> 
 				
 				<label for="inputEmail">아이디</label>
@@ -125,40 +125,40 @@
 				<input type="password" name="userpw" id="userpw" 
 					class="form-control" placeholder="비밀번호" required>
 					
-				<!-- <label for="inputPassword" class="sr-only">비밀번호확인</label>
+				<label for="inputPassword" class="sr-only">비밀번호확인</label>
 				<input type="password" name="userpw" id="inputPassword" 
-					class="form-control" placeholder="비밀번호확인" required> -->
+					class="form-control" placeholder="비밀번호확인" required>
 				
 				<label for="inputUsername">이름</label>
 				<input type="text" name="username" id="username" 
 					class="form-control" value="" required>
 				
-				<!-- 새로운 사진 -->
+				새로운 사진
 				<div class="form-group">
 	              <label for="userphoto">프로필 사진</label>
 	              <div class="custom-file">
 	                <input type="file" class="custom-file-input form-control" name="userphoto" id="userphoto" aria-describedby="inputGroupFileAddon01">
 	                <label class="custom-file-label" for="userphoto">탐색</label>
-	                <!-- 기존사진파일 -->
+	                기존사진파일
 	                <input type="hidden" id="oldPhoto" name="oldPhoto">
 	              </div>
 	            </div>
 				
 	          </div>
 	        </form>
-	      </div><!-- modal-body end -->
+	      </div>modal-body end
 	      
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-light" data-dismiss="modal">닫기</button>
 	        <button type="button" onclick="submitEditMember()" class="btn btn-light">수정</button>
-	      </div><!-- modal-footer end -->
+	      </div>modal-footer end
 	      
-	      </div><!-- modal-content end -->
-	    </div><!-- modal-dialog -->	    
-	 </div><!--modal END  -->
-	
+	      </div>modal-content end
+	    </div>modal-dialog	    
+	 </div>modal END 
+	 -->
 	<!-- footer start  -->
-	<%@ include file="/WEB-INF/views/frame/footer.jsp"%>
+	<%-- <%@ include file="/WEB-INF/views/frame/footer.jsp"%> --%>
 	<!-- footer end -->	
 </body>
 </html>

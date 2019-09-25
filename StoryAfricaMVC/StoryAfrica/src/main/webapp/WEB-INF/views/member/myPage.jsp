@@ -22,7 +22,7 @@
     <div class="container marketing h-myInfo p-top-my02">
 
     <!-- Three columns of text below the carousel -->
-      <div class="col-md-3 my-center">
+      <div class="col-md-6 my-center text-center">
 		<img src="<c:url value='/uploadedfile/userphoto/${sessionScope.LoginInfo.userphoto}'/>" class="listImg"><br>
         <!-- <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" 
         	preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140">
@@ -49,17 +49,16 @@
             </tr>
             <tr>
               <th scope="row">소개</th>
-              <td>하이룽~!</td>
+              <td>안녕하세요! 반가반가워요~!~!~!!!!</td>
             </tr>
           </tbody>
         </table>
-        <p><a class="btn btn-secondary" href="#" role="button">내정보수정</a></p>
       </div><!-- /.col-lg-4 -->
     </div>
     </div>
     
     <!--my writing list-->
-    <div class="album py-5 bg-light">
+    <!-- <div class="album py-5 bg-light">
         <div class="container">
           <div class="row">
             <div class="col-md-4">
@@ -109,42 +108,10 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
      <!-- footer start  -->
-	<%@ include file="/WEB-INF/views/frame/footer.jsp"%>
+	<%-- <%@ include file="/WEB-INF/views/frame/footer.jsp"%> --%>
 	<!-- footer end -->
 	</div>
 </body>
 </html>
-
-
-<%-- <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-
-<!-- header start -->
-<%@ include file="/WEB-INF/views/frame/header.jsp"%>
-<!-- header end -->
-		
-<!-- content start -->
-<div id="content" role="main" class="inner cover">
-<img src="<c:url value='/uploadedfile/userphoto/${sessionScope.LoginInfo.userphoto}'/>" class="profile-img"><br>
-<h3>내정보 보기</h3>
-<table class="table">
-    <tr>
-      <th scope="col">아이디</th>
-      <td>${sessionScope.LoginInfo.userid}</td>
-    </tr>
-    <tr>
-      <th scope="col">아이디</th>
-      <td>${sessionScope.LoginInfo.userid}</td>
-    </tr>
-    <tr>
-      <th scope="row">이름</th>
-      <td>${sessionScope.LoginInfo.username}</td>
-    </tr>
-    <tr>
-      <th scope="row">가입일</th>
-      <td>${sessionScope.LoginInfo.regdate}</td>
-	    </tr>	 
-	</table>		
-	</div>
-</div> --%>

@@ -34,49 +34,48 @@
     </ul>
     <ul class="navbar-nav">
     
-    <!-- 회원가입 DROP DOWN-->
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          회원가입
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown">
-          <form action="member/regMember" method="post" enctype="multipart/form-data" class="px-4 py-3">
-            <div class="form-group">
-              <label for="inputEmail">아이디</label>
-              <input type="checkbox" id="idchk">
-              <input type="email" class="form-control" name="userid" id="inputEmail" placeholder="아이디" required autofocus>
-            </div>
-            <div class="form-group">
-              <label for="inputPassword">비밀번호</label>
-              <input type="password" class="form-control" name="userpw" id="inputPassword" placeholder="비밀번호" required>
-            </div>
-            <div class="form-group">
-              <label for="inputUsername">이름</label>
-              <input type="text" class="form-control" name="username" id="inputUsername" placeholder="이름" required>
-            </div>
-            <div class="form-group">
-              <label for="inputProfile">프로필 사진</label>
-              <div class="custom-file">
-                <input type="file" class="custom-file-input form-control" name="userphoto" id="inputProfile" aria-describedby="inputGroupFileAddon01">
-                <label class="custom-file-label" for="inputGroupFile01">탐색</label>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="dropdownCheck">
-                <label class="form-check-label" for="dropdownCheck">
-                  개인정보수집동의
-                </label>
-              </div>
-            </div>
-            <button type="submit" class="btn btn-primary">회원가입</button>
-          </form>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">이미 우리 식구여? 어서 로그인 ㄲ</a>
-        </div>
-    </li>
-    
     <c:if test="${sessionScope.LoginInfo == null}">
+	    <!-- 회원가입 DROP DOWN-->
+	    <li class="nav-item dropdown">
+	        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	          회원가입
+	        </a>
+	        <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown">
+	          <form action="member/regMember" method="post" enctype="multipart/form-data" class="px-4 py-3">
+	            <div class="form-group">
+	              <label for="inputEmail">아이디</label>
+	              <input type="checkbox" id="idchk">
+	              <input type="email" class="form-control" name="userid" id="inputEmail" placeholder="아이디" required autofocus>
+	            </div>
+	            <div class="form-group">
+	              <label for="inputPassword">비밀번호</label>
+	              <input type="password" class="form-control" name="userpw" id="inputPassword" placeholder="비밀번호" required>
+	            </div>
+	            <div class="form-group">
+	              <label for="inputUsername">이름</label>
+	              <input type="text" class="form-control" name="username" id="inputUsername" placeholder="이름" required>
+	            </div>
+	            <div class="form-group">
+	              <label for="inputProfile">프로필 사진</label>
+	              <div class="custom-file">
+	                <input type="file" class="custom-file-input form-control" name="userphoto" id="inputProfile" aria-describedby="inputGroupFileAddon01">
+	                <label class="custom-file-label" for="inputGroupFile01">탐색</label>
+	              </div>
+	            </div>
+	            <div class="form-group">
+	              <div class="form-check">
+	                <input type="checkbox" class="form-check-input" id="dropdownCheck">
+	                <label class="form-check-label" for="dropdownCheck">
+	                  개인정보수집동의
+	                </label>
+	              </div>
+	            </div>
+	            <button type="submit" class="btn btn-primary">회원가입</button>
+	          </form>
+	          <div class="dropdown-divider"></div>
+	          <a class="dropdown-item" href="#">이미 회원이세요? <br>로그인 탭에서 로그인을 진행해주세요!</a>
+	        </div>
+	    </li>
     	<!-- 로그인 DROP DOWN-->
 	    <li class="nav-item dropdown">
 	        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -103,8 +102,8 @@
 	            <button type="submit" class="btn btn-primary">로그인</button>
 	          </form>
 	          <div class="dropdown-divider"></div>
-	          <a class="dropdown-item" href="#">너, 나의 동료가 되어라!</a>
-	          <a class="dropdown-item" href="member/forgotPw">비밀번호를 잊어버리셨어요?</a>
+	          <a class="dropdown-item" href="#">아직 회원이 아니세요? <br>회원가입 탭에서 회원가입을 진행해 주세요!</a>
+	          <!-- <a class="dropdown-item" href="member/forgotPw">비밀번호를 잊어버리셨어요?</a> -->
 	        </div>
 	    </li>
     </c:if> 

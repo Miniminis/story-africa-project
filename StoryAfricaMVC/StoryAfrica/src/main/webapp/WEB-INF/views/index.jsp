@@ -121,7 +121,7 @@
     </div> -->
     	
 	<!-- footer start  -->
-	<%@ include file="/WEB-INF/views/frame/footer.jsp"%>
+	<%-- <%@ include file="/WEB-INF/views/frame/footer.jsp"%> --%>
 	<!-- footer end -->
 	</div>
 </body>

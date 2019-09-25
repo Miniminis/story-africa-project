@@ -6,7 +6,9 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-public class AuthCheckInterceptor extends HandlerInterceptorAdapter {
+import com.storyafrica.sa.member.domain.LoginInfo;
+
+public class AdminCheckInterceptor extends HandlerInterceptorAdapter {
 	
 	@Override
 	public boolean preHandle(HttpServletRequest request, 
@@ -26,13 +28,17 @@ public class AuthCheckInterceptor extends HandlerInterceptorAdapter {
 		
 		/* 수정코드 */
 		if(session != null && session.getAttribute("LoginInfo") != null) {
-			return true; //다음 체이닝으로 이동. 이후의 매서드 내용 실행 안함. 
+			LoginInfo loginInfo = (LoginInfo) session.getAttribute("LoginInfo");
+			
+			if(loginInfo.getUserid().equals("admin@admin")) {
+				return true; //다음 체이닝으로 이동. 이후의 매서드 내용 실행 안함. 
+			}
 		}
 		
 		System.out.println("request.getRequestURI()출력 :::  "+request.getRequestURI());
 		
 		//요청 페이지가 마이페이지일 경우 
-		response.sendRedirect(request.getContextPath()+"/member/loginRequired"); //로그인 필요함 팝업창 페이지 
+		response.sendRedirect(request.getContextPath()+"/member/loginRequiredAdmin"); //로그인 필요함 팝업창 페이지 
 		
 		return false;
 	}

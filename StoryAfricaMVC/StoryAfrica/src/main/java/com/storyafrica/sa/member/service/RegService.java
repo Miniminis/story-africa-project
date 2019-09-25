@@ -110,7 +110,7 @@ public class RegService implements MemberService {
 	public String idChk2(String id) {
 		memSessDao = sqltemplate.getMapper(MemberSessionDao.class);
 
-		String chk = memSessDao.selectMemberById(id)==null?"Y":"N";
+		String chk = memSessDao.selectMemberById(id) == null ? "Y" : "N";
 		
 		return chk;
 	}
