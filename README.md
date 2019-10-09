@@ -1,6 +1,13 @@
 # Story-africa-project
 > 아프리카를 사랑하는 모든 사람들을 위한 콘텐츠 플랫폼  [Site Link](http://15.164.99.110:8080/storyafrica/)
 
+## 구현화면
+<img src="https://github.com/Miniminis/Story-africa-project/blob/master/StoryAfrica_screenshots/storyafrica.png">
+<img src="https://github.com/Miniminis/Story-africa-project/blob/master/StoryAfrica_screenshots/storyafrica2.png">
+<img src="https://github.com/Miniminis/Story-africa-project/blob/master/StoryAfrica_screenshots/storyafrica4.png">
+<img src="https://github.com/Miniminis/Story-africa-project/blob/master/StoryAfrica_screenshots/storyafrica5.png">
+
+
 ## 흐름도
 <img src="/main.png">
 
