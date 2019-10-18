@@ -1,17 +1,6 @@
 # Story-africa-project
 > 아프리카를 사랑하는 모든 사람들을 위한 콘텐츠 플랫폼 <br> 
-> [배포 주소 링크](http://15.164.99.110:8080/storyafrica/)
-
-## 구현화면
-<img src="https://github.com/Miniminis/Story-africa-project/blob/master/StoryAfrica_screenshots/storyafrica.png">
-<img src="https://github.com/Miniminis/Story-africa-project/blob/master/StoryAfrica_screenshots/storyafrica2.png">
-<img src="https://github.com/Miniminis/Story-africa-project/blob/master/StoryAfrica_screenshots/storyafrica4.png">
-<img src="https://github.com/Miniminis/Story-africa-project/blob/master/StoryAfrica_screenshots/storyafrica5.png">
-
-
-## 흐름도
-<img src="/main.png">
-
+> [데모 어플리케이션 링크](http://15.164.99.110:8080/storyafrica/)
 
 ## 기술/구조 
 * 웹표준
@@ -26,14 +15,26 @@
   * v1 ~ v6 : `Oracle`
 * Spring Framework
 * `MyBatis`
+<br><br>
 
+
+## 흐름도
+<img src="/main.png">
+<br><br>
 
 ## 테스트 안내 
   * 모든 서비스는 로그인 상태에서 이용 가능 : 회원가입(이메일 이용) - 인증매일 발송 - 계정인증 - 로그인 
   * 에디터 리스트는 수정, 삭제 기능이 있기 때문에 관리자만 접근 가능 
     * 관리자 계정 아이디 : admin@admin 
     * 관리자 계정 비밀번호 : admin
+<br><br>
 
+## 구현화면
+<img src="https://github.com/Miniminis/Story-africa-project/blob/master/StoryAfrica_screenshots/storyafrica.png">
+<img src="https://github.com/Miniminis/Story-africa-project/blob/master/StoryAfrica_screenshots/storyafrica2.png">
+<img src="https://github.com/Miniminis/Story-africa-project/blob/master/StoryAfrica_screenshots/storyafrica4.png">
+<img src="https://github.com/Miniminis/Story-africa-project/blob/master/StoryAfrica_screenshots/storyafrica5.png">
+<br><br>
 
 ## 버전
 * 자세한 버전관리는 커밋 내역을 참고 
